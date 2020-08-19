@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<title>ktnet 인재채용</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+</head>
+<body>
+	<div id="wrap">
+		<div id="header">			
+			<div class="header_in">
+				<h1 style=""><a href="#"><img src="img/top_inc_title.png" alt="ktnet인재채용"></a></h1>	
+				<a href="http://www.ktnet.com" class="ktnetlogo" style=""><img src="img/top_inc_ktnetlogo.png" alt="KTNET" ></a>		
+			</div>			
+		</div><!-- /#header -->
+
+		<div id="content">
+			<div class="line pd_t110">
+				
+				<!-- 본문시작 -->
+				<div class="section_ap">
+					<table>
+						<colgroup>
+							<col width="95px" />
+							<col width="" />
+							<col width="95px" />
+						</colgroup>
+						<tr>
+							<th scope="row">비밀번호</th>
+							<td><input type="text" class="input_t1 w160" /></td>
+						</tr>
+						<tr>
+							<th scope="row">지원구분</th>
+							<td>
+								<select name="" class="select_type01 w170">
+									<option value="">선택</option>
+									<option value="">선택1</option>
+									<option value="">선택2</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">정기채용번호</th>
+							<td><input type="text" class="input_t1 w160" /></td>
+						</tr>
+					</table>
+					<p>※ 위에 비밀번호는 입사지원서를 수정하거나 결과조회 시 필요하오니 반드시 입력하시기 바랍니다.<br />※ 비밀번호를 잊어버렸을 시에는 <span>메일 (ktnethrm@ktnet.co.kr)</span>로 문의해 주시기 바랍니다.</p>
+				</div>
+				
+				<div class="btn_center mr_t25 mr_b60">
+					<span class="gray_button2"><button type="gray_button" onclick="go_policy()">작성</button></span>
+					<span class="gray_button2"><button type="gray_button">수정</button></span> 
+					<span class="blue_button"><button type="blue_button">결과조회</button></span> 
+				</div>
+				<!-- //본문시작 -->
+
+			</div><!-- /.line -->
+		</div><!-- /#content -->
+		<div id="footer">Copyright 2020 KTNET All Rights Reserved.</div>
+	</div><!-- /#wrapper -->
+
+	<script>
+		function go_policy() {
+		  location.href='policy'
+		}
+	</script>
+</body>
+</html>

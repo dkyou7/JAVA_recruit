@@ -1,0 +1,21 @@
+spring:
+  servlet:
+    multipart:
+      file-size-threshold: 1MB
+      max-file-size: 100MB
+      max-request-size: 100MB
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/erp_system
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create  # 이 옵션은 애플리케이션 실행 시점에 테이블을 drop 하고, 다시 생성한다
+      # show_sql: true
+      format_sql: true
+      dialect: org.hibernate.dialect.H2Dialect
+

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<title>ktnet 인재채용</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+</head>
+<body>
+	<div id="wrap">
+		<div id="header">
+			<div class="header_in">
+				<h1><a href="#"><img src="img/top_inc_title.png" alt="ktnet인재채용"></a></h1>	
+				<a href="http://www.ktnet.com" class="ktnetlogo" style=""><img src="img/top_inc_ktnetlogo.png" alt="KTNET" ></a>		
+			</div>	
+		</div><!-- /#header -->
+
+		<div id="content">
+			<div class="container">
+				<ul>
+                            <li><a href="#"><img src="img/process01_off.png" class="icn"/></a>
+                            <div class="txts">STEP 01</div>
+                            <div class="txt">신상정보</div> </li>
+                            <li class="arrow"></li>
+                            <li><img src="img/process02_on.png" class="icn" />
+                            <div class="txts bold">STEP 02</div>
+                            <div class="txt bold">자격/면허</div></li>
+                            <li class="arrow a"></li>
+                            <li><a href="#"><img src="img/process03_off.png" class="icn" /></a>
+                            <div class="txts">STEP 03</div>
+                            <div class="txt">자기소개서</div></li>
+                 </ul>
+					
+				<!-- 본문시작 -->
+				<h1>학 력</h1>
+				<div class="view2 w885">
+					<table summary="학력" class="w885">
+					<caption>학력</caption>
+						<colgroup>
+							<col width="190px" />
+							<col width="240px" />
+							<col width="70px" />
+							<col width="120x" />
+							<col width="80px" />
+							<col width="85px" />
+							<col width="*" />
+						</colgroup>
+						<tr>
+							<th scope="col">입학년월~졸업년월<br /><span>(yyyy-mm)</span></th>
+							<th scope="col">학교명</th>
+							<th scope="col">소재지</th>
+							<th scope="col">학과</th>
+							<th scope="col">졸업구분</th>
+							<th scope="col">학점</th>
+							<th scope="col">부전공</th>
+						</tr>
+						<tr>
+							<td scope="col"><input type="text" class="input_t1 w60"/> - <input type="text" class="input_t1 w60"/></td>
+							<td scope="col"><input type="text" class="input_t1 w80"/>
+								<select name="" class="select_type01 w110">
+									<option value="">고등학교</option>
+									<option value="">대학교</option>
+									<option value="">대학</option>
+								</select>
+							</td>
+							<td scope="col">
+								<select name="" class="select_type01 w60">
+									<option value="">서울</option>
+									<option value="">경기</option>
+									<option value="">부산</option>
+								</select>
+							</td>
+							<td scope="col"><input type="text" class="input_t1 w100"/></td>
+							<td scope="col">
+								<select name="" class="select_type01 w70">
+									<option value="">졸업</option>
+									<option value="">재학중</option>
+									<option value="">중퇴</option>
+								</select>
+							</td>
+							<td scope="col"><input type="text" class="input_t1 w45"/> /
+								<select name="" class="select_type01 w57" style="margin-top:5px;">
+									<option value="">4.0</option>
+									<option value="">3.5</option>
+									<option value="">3.0</option>
+								</select>
+							</td>
+							<td scope="col"><input type="text" class="input_t1 w70"/></td>
+						</tr>
+					</table>
+					<p>※ <b>고등학교부터 순서대로 기입</b> 바랍니다.</p>
+				</div>
+				
+				<h1 class="mr_t40">경 력</h1>
+				<div class="view2 w885">
+					<table summary="경력" class="w885">
+					<caption>경력</caption>
+						<colgroup>
+							<col width="140px" />
+							<col width="140px" />
+							<col width="140px" />
+							<col width="190px" />
+							<col width="140px" />
+							<col width="*" />
+						</colgroup>
+						<tr>
+							<th scope="col">경 력</th>
+							<th scope="col">부서명</th>
+							<th scope="col">담당업무</th>
+							<th scope="col">근무기간<br /><span>(yyyy-mm)</span></th>
+							<th scope="col">직위</th>
+							<th scope="col">근무지</th>
+						</tr>
+						<tr>
+							<td scope="col"><input type="text" class="input_t1 w_p90"/></td>
+							<td scope="col"><input type="text" class="input_t1 w_p90"/></td>
+							<td scope="col"><input type="text" class="input_t1 w_p90"/></td>
+							<td scope="col"><input type="text" class="input_t1 w70"/> - <input type="text" class="input_t1 w70"/></td>
+							<td scope="col"><input type="text" class="input_t1 w_p90"/></td>
+							<td scope="col"><input type="text" class="input_t1 w_p90"/></td>
+						</tr>
+					</table>
+					<p>※ <b>인턴쉽 포함하여 작성</b> 하시기 바랍니다.</p>
+				</div>
+				
+				<h1 class="mr_t40">자격/면허</h1>
+				<div class="view2 w885">
+					<table summary="경력" class="w885">
+					<caption>경력</caption>
+						<colgroup>
+							<col width="200px" />
+							<col width="180px" />
+							<col width="70px" />
+							<col width="140px" />
+							<col width="140px" />
+							<col width="*" />
+						</colgroup>
+						<tr>
+							<th scope="col">자격/면허명</th>
+							<th scope="col">발행기관</th>
+							<th scope="col">등급</th>
+							<th scope="col">취득일자<br /><span>(yyyy-mm)</span></th>
+							<th scope="col">유효일자<br /><span>(yyyy-mm)</span></th>
+							<th scope="col">자격증번호</th>
+						</tr>
+						<tr>
+							<td scope="col"><input type="text" class="input_t1 w_p94"/></td>
+							<td scope="col"><input type="text" class="input_t1 w_p92"/></td>
+							<td scope="col"><input type="text" class="input_t1 w_p80"/></td>
+							<td scope="col"><input type="text" class="input_t1 w_p90"/></td>
+							<td scope="col"><input type="text" class="input_t1 w_p90"/></td>
+							<td scope="col"><input type="text" class="input_t1 w_p90"/></td>
+						</tr>
+					</table>
+				</div>
+
+				<h1 class="mr_t40">어 학</h1>
+				<div class="view2 w885">
+					<table summary="어학" class="w885">
+					<caption>어학</caption>
+						<colgroup>
+							<col width="180px" />
+							<col width="160px" />
+							<col width="120px" />
+							<col width="180px" />
+							<col width="100px" />
+							<col width="*" />
+						</colgroup>
+						<tr>
+							<th scope="col">외국어</th>
+							<th scope="col">기타외국어</th>
+							<th scope="col">능력</th>
+							<th scope="col">공인시험명</th>
+							<th scope="col">점수(등급)</th>
+							<th scope="col">시험일자<br /><span>(yyyy-mm)</span></th>
+						</tr>
+						<tr>
+							<td scope="col">
+								<select name="" class="select_type01 w_p98">
+									<option value="">서울</option>
+									<option value="">경기</option>
+									<option value="">부산</option>
+								</select>
+							</td>
+							<td scope="col"><input type="text" class="input_t1 w_p92"/></td>
+							<td scope="col">
+								<select name="" class="select_type01 w_p98">
+									<option value="">서울</option>
+									<option value="">경기</option>
+									<option value="">부산</option>
+								</select>
+							</td>
+							<td scope="col">
+								<select name="" class="select_type01 w_p98">
+									<option value="">서울</option>
+									<option value="">경기</option>
+									<option value="">부산</option>
+								</select>
+							</td>
+							<td scope="col"><input type="text" class="input_t1 w_p85"/></td>
+							<td scope="col"><input type="text" class="input_t1 w_p90"/></td>
+						</tr>
+					</table>
+					<p>※ <b>최근 2년내 어학점수를 표시</b>하시기 바랍니다.</p>
+				</div>
+
+				<h1 class="mr_t40">가 족</h1>
+				<div class="view2 w885">
+					<table summary="가족" class="w885">
+					<caption>가족</caption>
+						<colgroup>
+							<col width="160px" />
+							<col width="160px" />
+							<col width="140px" />
+							<col width="160px" />
+							<col width="160px" />
+							<col width="*" />
+						</colgroup>
+						<tr>
+							<th scope="col">관계</th>
+							<th scope="col">성명</th>
+							<th scope="col">생년월일<br /><span>(yyyy-mm)</span></th>
+							<th scope="col">학력</th>
+							<th scope="col">직업</th>
+							<th scope="col">동거여부</th>
+						</tr>
+						<tr>
+							<td scope="col">
+								<select name="" class="select_type01 w_p98">
+									<option value="">서울</option>
+									<option value="">경기</option>
+									<option value="">부산</option>
+								</select>
+							</td>
+							<td scope="col"><input type="text" class="input_t1 w_p92"/></td>
+							<td scope="col">
+								<select name="" class="select_type01 w_p98">
+									<option value="">서울</option>
+									<option value="">경기</option>
+									<option value="">부산</option>
+								</select>
+							</td>
+							<td scope="col">
+								<select name="" class="select_type01 w_p98">
+									<option value="">서울</option>
+									<option value="">경기</option>
+									<option value="">부산</option>
+								</select>
+							</td>
+							<td scope="col"><input type="text" class="input_t1 w_p92"/></td>
+							<td scope="col"><input type="text" class="input_t1 w_p85"/></td>
+						</tr>
+					</table>
+				</div>
+
+				<h1 class="mr_t40">첨부파일</h1>
+				<div class="view2 w885">
+					<table summary="가족" class="w885">
+					<caption>가족</caption>
+						<colgroup>
+							<col width="95px" />
+							<col width="350px" />
+							<col width="95px" />
+							<col width="*" />
+						</colgroup>
+						<tr>
+							<th scope="col">관계</th>
+							<td><input type="file" class="file_btn" style="width:340px;" /></td>
+							<th scope="col">관계</th>
+							<td><input type="file" class="file_btn" style="width:340px;" /></td>
+						</tr>
+					</table>
+					<p>※ 입사지원서 기재 내용중<b>허위로 작성된 내용에 대한 모든 책임은 지원자</b>에 있습니다.<br />※ 첨부파일은<b>확장자가 jpg,hwp,doc,ppt,xls만 가능</b>합니다.(양식은 자유양식, 각 5M크기 한도) </p>
+				</div>
+
+				<div class="view2 w885 mr_t35">
+					<table summary="비밀번호" class="w885">
+					<caption>비밀번호</caption>
+						<colgroup>
+							<col width="108px" />
+							<col width="165px" />
+							<col width="108px" />
+							<col width="165px" />
+							<col width="115px" />
+							<col width="*" />
+						</colgroup>
+						<tr>
+							<th scope="col">비밀번호</th>
+							<td scope="col"><input type="password" class="input_t1 w_p90"/></td>
+							<th scope="col">비밀번호 확인</th>
+							<td scope="col"><input type="password" class="input_t1 w_p90"/></td>
+							<th scope="col">마지막 수정일자</th>
+							<td scope="col"><input type="password" class="input_t1 w_p94"/></td>
+						</tr>
+					</table>
+
+					<div class="btn_center2">
+						<span class="gray_button3"><button type="gray_button3">이전</button></span> 
+						<span class="blue_button"><button type="blue_button">저장</button></span> 
+					</div>
+				</div>
+				<!-- //본문시작 -->
+</div>
+			</div><!-- /.line -->
+		</div><!-- /#content -->
+		<div id="footer">Copyright 2020 KTNET All Rights Reserved.</div>
+	</div><!-- /#wrapper -->
+	
+</body>
+</html>
