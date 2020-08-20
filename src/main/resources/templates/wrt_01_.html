@@ -1,36 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<head>
-	<meta charset="UTF-8"/>
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
-	<title>ktnet 인재채용</title>
-	<link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="css/common.css" />
-</head>
-<body>
-	<div id="wrap">
-		<div id="header">
-			<div class="header_in">
-				<h1><a href="#"><img src="img/top_inc_title.png" alt="ktnet인재채용"></a></h1>
-				<a href="http://www.ktnet.com" class="ktnetlogo" style=""><img src="img/top_inc_ktnetlogo.png" alt="KTNET" ></a>
-			</div>
-		</div><!-- /#header -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layout/default">
 
+<div layout:fragment="contentFragment">
+	<div id="wrap">
 		<div id="content">
 			<div class="container">
 				<ul>
-                            <li><img src="img/process01_on.png" class="icn"/>
-                            <div class="txts bold">STEP 01</div>
-                            <div class="txt bold">신상정보</div> </li>
-                            <li class="arrow a"></li>
-                            <li><a href="#"><img src="img/process02_off.png" class="icn" /></a>
-                            <div class="txts">STEP 02</div>
-                            <div class="txt">자격/면허</div></li>
-                            <li class="arrow "></li>
-                            <li><a href="#"><img src="img/process03_off.png" class="icn" /></a>
-                            <div class="txts">STEP 03</div>
-                            <div class="txt">자기소개서</div></li>
+					<li>
+						<img src="img/process01_on.png" class="icn"/>
+						<div class="txts bold">STEP 01</div>
+						<div class="txt bold">신상정보</div>
+					</li>
+					<li class="arrow a"></li>
+					<li>
+						<a th:href="@{/wrt02}" onclick="go_wrt02()">
+							<img src="img/process02_off.png" class="icn" />
+						</a>
+						<div class="txts">STEP 02</div>
+						<div class="txt">자격/면허</div>
+					</li>
+					<li class="arrow "></li>
+					<li><a href="#"><img src="img/process03_off.png" class="icn" /></a>
+					<div class="txts">STEP 03</div>
+					<div class="txt">자기소개서</div></li>
                  </ul>
 
 					<!-- 본문시작 -->
@@ -277,17 +272,14 @@
 						<span class="blue_button"><button type="blue_button" onclick="go_wrt02()">다음</button></span>
 					</div>
 				</div>
-				<!-- //본문시작 -->
+					<!-- //본문시작 -->
 
 			</div>
-			</div><!-- /.line -->
+			</div><!-- /.container -->
 		</div><!-- /#content -->
-		<div id="footer">Copyright 2020 KTNET All Rights Reserved.</div>
-	</div><!-- /#wrapper -->
-	<script>
-		function go_wrt02(){
-			location.href='wrt02';
-		}
-	</script>
-</body>
+	<!-- wrt_01_.html 고유 스크립트 추가 -->
+	<th:block layout:fragment="script">
+		<script th:src="@{/js/page/wrt_01_.js}"></script>
+	</th:block>
+	</div><!-- /#wrap -->
 </html>
