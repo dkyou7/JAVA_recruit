@@ -19,7 +19,7 @@ public class FirstPageController {
             FirstPage firstPage = FirstPage.toEntity(firstPageDto);
             // todo: 추후 user table과 one to one 으로 엮여야 하지 않을까?
             firstPageService.save(firstPage);
-            return "policy";
+            return "redirect:/policy";
         }
         return "redirect:/";
     }
