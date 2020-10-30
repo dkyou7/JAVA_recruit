@@ -1,6 +1,6 @@
 package com.ktnet.recruit.web.repository;
 
-import com.ktnet.recruit.web.domain.User;
+import com.ktnet.recruit.web.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User,Long> {

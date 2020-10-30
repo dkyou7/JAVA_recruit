@@ -9,7 +9,7 @@
 	<link rel="stylesheet" th:href="@{/css/page/home.css}" >
 </th:block>
 	<div layout:fragment="contentFragment">
-		<form th:action="@{/login}" th:object="${dto}" method="post">
+		<form th:action="@{/first_page/permit}" th:object="${dto}" method="post">
 			<div id="wrap">
 				<div id="content">
 					<div class="line pd_t110">
@@ -23,7 +23,7 @@
 								</colgroup>
 								<tr>
 									<th scope="row">비밀번호</th>
-									<td><input type="text" class="input_t1 w160" name="password"/></td>
+									<td><input type="text" class="input_t1 w160" th:field="*{password}" name="password"/></td>
 								</tr>
 								<tr>
 									<th scope="row">지원구분</th>
@@ -38,7 +38,7 @@
 								</tr>
 								<tr>
 									<th scope="row">정기채용번호</th>
-									<td><input type="text" class="input_t1 w160" name="regular_emp_num"/></td>
+									<td><input type="text" class="input_t1 w160" th:field="*{applyNumber}" name="regular_emp_num"/></td>
 								</tr>
 							</table>
 							<p>※ 위에 비밀번호는 입사지원서를 수정하거나 결과조회 시 필요하오니 반드시 입력하시기 바랍니다.<br />※ 비밀번호를 잊어버렸을 시에는 <span>메일 (ktnethrm@ktnet.co.kr)</span>로 문의해 주시기 바랍니다.</p>

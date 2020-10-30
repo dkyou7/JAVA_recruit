@@ -1,6 +1,6 @@
 package com.ktnet.recruit.web.service;
 
-import com.ktnet.recruit.web.domain.User;
+import com.ktnet.recruit.web.user.User;
 import com.ktnet.recruit.web.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

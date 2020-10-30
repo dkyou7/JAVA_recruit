@@ -1,13 +1,11 @@
-package com.ktnet.recruit.web.domain;
+package com.ktnet.recruit.web.user;
 
+import com.ktnet.recruit.web.first_page.FirstPage;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
