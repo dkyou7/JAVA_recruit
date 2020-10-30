@@ -9,24 +9,18 @@
 		<div id="content">
 			<div class="container">
 				<ul>
-					<li>
-						<img src="img/process01_on.png" class="icn"/>
+					<li><a th:href="@{/wrt01}"><img src="img/process01_on.png" class="icn"/></a>
 						<div class="txts bold">STEP 01</div>
-						<div class="txt bold">신상정보</div>
-					</li>
-					<li class="arrow a"></li>
-					<li>
-						<a th:href="@{/wrt02}" onclick="go_wrt02()">
-							<img src="img/process02_off.png" class="icn" />
-						</a>
+						<div class="txt bold">신상정보</div> </li>
+					<li class="arrow"></li>
+					<li><a th:href="@{/wrt02}"><img src="img/process02_off.png" class="icn" /></a>
 						<div class="txts">STEP 02</div>
-						<div class="txt">자격/면허</div>
-					</li>
-					<li class="arrow "></li>
-					<li><a href="#"><img src="img/process03_off.png" class="icn" /></a>
-					<div class="txts">STEP 03</div>
-					<div class="txt">자기소개서</div></li>
-                 </ul>
+						<div class="txt">자격/면허</div></li>
+					<li class="arrow"></li>
+					<li><a th:href="@{/wrt03}"><img src="img/process03_off.png" class="icn" /></a>
+						<div class="txts">STEP 03</div>
+						<div class="txt">자기소개서</div></li>
+				</ul>
 
 					<!-- 본문시작 -->
 				<div class="view2 w885">
@@ -269,7 +263,7 @@
 					</table>
 
 					<div class="btn_center2">
-						<span class="blue_button"><button type="blue_button" onclick="go_wrt02()">다음</button></span>
+						<span class="blue_button"><button type="blue_button" onclick="go_link('wrt02')">다음</button></span>
 					</div>
 				</div>
 					<!-- //본문시작 -->

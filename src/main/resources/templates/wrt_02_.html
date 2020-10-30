@@ -9,18 +9,18 @@
 		<div id="content">
 			<div class="container">
 				<ul>
-					<li><a href="@{/wrt01}"><img src="img/process01_off.png" class="icn"/></a>
-					<div class="txts">STEP 01</div>
-					<div class="txt">신상정보</div> </li>
+					<li><a th:href="@{/wrt01}"><img src="img/process01_off.png" class="icn"/></a>
+						<div class="txts">STEP 01</div>
+						<div class="txt">신상정보</div> </li>
 					<li class="arrow"></li>
-					<li><img src="img/process02_on.png" class="icn" />
-					<div class="txts bold">STEP 02</div>
-					<div class="txt bold">자격/면허</div></li>
-					<li class="arrow a"></li>
-					<li><a href="#"><img src="img/process03_off.png" class="icn" /></a>
-					<div class="txts">STEP 03</div>
-					<div class="txt">자기소개서</div></li>
-                 </ul>
+					<li><a th:href="@{/wrt02}"><img src="img/process02_on.png" class="icn" /></a>
+						<div class="txts bold">STEP 02</div>
+						<div class="txt bold">자격/면허</div></li>
+					<li class="arrow"></li>
+					<li><a th:href="@{/wrt03}"><img src="img/process03_off.png" class="icn" /></a>
+						<div class="txts">STEP 03</div>
+						<div class="txt">자기소개서</div></li>
+				</ul>
 					
 				<!-- 본문시작 -->
 				<h1>학 력</h1>
@@ -286,8 +286,8 @@
 					</table>
 
 					<div class="btn_center2">
-						<span class="gray_button3"><button type="gray_button3" onclick="go_wrt01()">이전</button></span>
-						<span class="blue_button"><button type="blue_button">저장</button></span> 
+						<span class="gray_button3"><button type="gray_button3" onclick="go_link('wrt01')">이전</button></span>
+						<span class="blue_button"><button type="blue_button" onclick="go_link('wrt03')">저장</button></span>
 					</div>
 				</div>
 				<!-- //본문시작 -->

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layout/default">
+
+	<div layout:fragment="contentFragment">
+		<div id="wrap">
+			<div id="content">
+				<div class="container">
+					<ul>
+						<li><a th:href="@{/wrt01}"><img src="img/process01_off.png" class="icn"/></a>
+							<div class="txts">STEP 01</div>
+							<div class="txt">신상정보</div> </li>
+						<li class="arrow"></li>
+						<li><a th:href="@{/wrt02}"><img src="img/process02_off.png" class="icn" /></a>
+							<div class="txts">STEP 02</div>
+							<div class="txt">자격/면허</div></li>
+						<li class="arrow"></li>
+						<li><a th:href="@{/wrt03}"><img src="img/process03_on.png" class="icn" /></a>
+							<div class="txts bold">STEP 03</div>
+							<div class="txt bold">자기소개서</div></li>
+					</ul>
+
+					<!-- 본문시작 -->
+					<h1>자기소개서</h1>
+					<p style="color: red">※ 자기소개서 미작성시 1차 서류전형때 불합격 처리됩니다.</p>
+					<div class="view2 w885">
+						<table summary="학력" class="w885">
+							<caption>학력</caption>
+							<colgroup>
+								<col width="200px" />
+								<col width="*" />
+							</colgroup>
+							<tr>
+								<th scope="col">성장과정<br>
+									<br>
+									(1000byte 이내, <br>
+									공백포함,
+									필수)</th>
+								<td scope="col"><textarea name="textarea" id="textarea" cols="95" rows="10"></textarea>
+								</th>
+							</tr>
+							<tr>
+								<th scope="col">지원동기 및 주요경력 업적<br>
+									<br>
+									(1800byte 이내, <br>
+									공백포함, 필수)</th>
+								<td scope="col"><textarea name="textarea" id="textarea" cols="95" rows="10"></textarea>
+								</tr>
+							<tr>
+								<th scope="col">입사 후 업무추진 계획<br>
+									및 Vision<br>
+									<br>
+									(1400byte 이내, <br>
+									공백포함,
+									필수)</th>
+								<td scope="col"><textarea name="textarea" id="textarea" cols="95" rows="10"></textarea>
+							</tr>
+							<tr>
+								<th scope="col">조직 화합성 및 인성<br>
+									<br>(1000byte 이내, <br>
+									공백포함,
+									필수)</th>
+								<td scope="col"><textarea name="textarea" id="textarea" cols="95" rows="10"></textarea>
+								</tr>
+							<tr>
+								<th scope="col">기 타<br>
+									<br>
+									(500byte 이내, <br>
+									공백포함)</th>
+								<td scope="col"><textarea name="textarea" id="textarea" cols="95" rows="10"></textarea>
+							</tr>
+						</table>
+
+					</div>
+
+					<div class="view2 w885"></div>
+					<div class="btn_center2">
+						<span class="gray_button3"><button type="gray_button3" onclick="go_link('wrt02')">이전</button></span>
+						<span class="blue_button"><button type="blue_button">저장</button></span>
+					</div>
+					<!-- //본문시작 -->
+				</div>
+			</div><!-- /.line -->
+		</div><!-- /#content -->
+		<!-- wrt_03_.html 고유 스크립트 추가 -->
+		<th:block layout:fragment="script">
+			<script th:src="@{/js/page/wrt_03_.js}"></script>
+		</th:block>
+	</div><!-- /#wrapper -->
+</html>

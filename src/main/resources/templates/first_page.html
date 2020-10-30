@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layout/default">
+
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+	<link rel="stylesheet" th:href="@{/css/page/home.css}" >
+</th:block>
+	<div layout:fragment="contentFragment">
+		<form th:action="@{/login}" th:object="${dto}" method="post">
+			<div id="wrap">
+				<div id="content">
+					<div class="line pd_t110">
+						<!-- 본문시작 -->
+						<div class="section_ap">
+							<table>
+								<colgroup>
+									<col width="95px" />
+									<col width="" />
+									<col width="95px" />
+								</colgroup>
+								<tr>
+									<th scope="row">비밀번호</th>
+									<td><input type="text" class="input_t1 w160" name="password"/></td>
+								</tr>
+								<tr>
+									<th scope="row">지원구분</th>
+									<td>
+										<select th:field="*{applyInfoGubun}" class="select_type01 w170">
+											<option value=""> 선택 </option>
+											<option th:each="val : ${gubun}"
+													th:value="${val?.recruitName}"
+													th:utext="${val?.recruitName}"></option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">정기채용번호</th>
+									<td><input type="text" class="input_t1 w160" name="regular_emp_num"/></td>
+								</tr>
+							</table>
+							<p>※ 위에 비밀번호는 입사지원서를 수정하거나 결과조회 시 필요하오니 반드시 입력하시기 바랍니다.<br />※ 비밀번호를 잊어버렸을 시에는 <span>메일 (ktnethrm@ktnet.co.kr)</span>로 문의해 주시기 바랍니다.</p>
+						</div>
+
+						<div class="btn_center mr_t25 mr_b60">
+							<span class="gray_button2"><button type="submit" onclick="go_link('policy')">작성</button></span>
+							<span class="gray_button2"><button type="gray_button">수정</button></span>
+							<span class="blue_button"><button type="blue_button" onclick="go_link('process')">결과조회</button></span>
+						</div>
+						<!-- //본문시작 -->
+					</div><!-- /.line -->
+				</div><!-- /#content -->
+			</div><!-- /#wrapper -->
+		</form>
+		<!-- first_page.html 고유 스크립트 추가 -->
+		<th:block layout:fragment="script">
+			<script th:src="@{/js/page/home.js}"></script>
+		</th:block>
+	</div>
+</html>
