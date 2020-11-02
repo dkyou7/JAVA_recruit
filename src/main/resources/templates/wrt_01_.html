@@ -23,7 +23,7 @@
 				</ul>
 
 					<!-- 본문시작 -->
-				<form th:action="@{#}" method="post" th:object="${dto}">
+				<form name="userForm" method="post" th:object="${dto}">
 					<div class="view2 w885">
 						<table summary="지원구분" class="w885">
 						<caption>"</caption>
@@ -55,7 +55,7 @@
 							</tr>
 							<tr>
 								<th scope="col">지원분야</th>
-								<td scope="col" colspan="5">
+								<td scope="col" colspan="3">
 									<select name="" class="select_type01 w300">
 										<option value="">전산</option>
 										<option value="">분야2</option>
@@ -90,15 +90,15 @@
 									</div>
 								</td>
 								<th scope="col">성명</th>
-								<td scope="col"><input type="text" class="input_t1 w160"/></td>
+								<td scope="col"><input type="text" th:field="${user.name}" class="input_t1 w160"/></td>
 								<th scope="col">한문</th>
-								<td scope="col"><input type="text" class="input_t1 w175"/></td>
+								<td scope="col"><input type="text" th:field="${user.cName}" class="input_t1 w175"/></td>
 							</tr>
 							<tr>
 								<th scope="col">주민등록번호</th>
 								<td scope="col"><input type="text" class="input_t1 w160"/></td>
 								<th scope="col">이메일(필수)</th>
-								<td scope="col" style="font-size:11px;color:#828282;"><input type="text" class="input_t1 w175 mr_b5"/><br /><em style="font-size:12px;">※</em><b> 메일로 합격통보</b>합니다.</td>
+								<td scope="col" style="font-size:11px;color:#828282;"><input type="text" th:field="${user.email}" class="input_t1 w175 mr_b5"/><br /><em style="font-size:12px;">※</em><b> 메일로 합격통보</b>합니다.</td>
 							</tr>
 							<tr>
 								<th scope="col" rowspan="3">주소</th>
@@ -112,9 +112,9 @@
 							</tr>
 							<tr>
 								<th scope="col">(집)전화</th>
-								<td scope="col"><input type="text" class="input_t1 w160"/></td>
+								<td scope="col"><input type="text" th:field="${user.phoneNumber}" class="input_t1 w160"/></td>
 								<th scope="col">휴대폰</th>
-								<td scope="col"><input type="text" class="input_t1 w175"/></td>
+								<td scope="col"><input type="text" th:field="${user.homeNumber}" class="input_t1 w175"/></td>
 							</tr>
 							<tr>
 								<th scope="col">신장</th>
@@ -123,26 +123,20 @@
 								<td scope="col"><input type="text" class="input_t1 w140"/> kg</td>
 								<th scope="col">혼인여부</th>
 								<td scope="col">
-									<select name="" class="select_type01 w170">
-										<option value="">선택</option>
-										<option value="">기혼</option>
-										<option value="">미혼</option>
+									<select name="isMarried" class="select_type01 w170">
+										<option value="false">선택</option>
+										<option value="true">기혼</option>
+										<option value="false">미혼</option>
 									</select>
 								</td>
 							</tr>
 							<tr>
 								<th scope="col">특기</th>
-								<td scope="col"><input type="text" class="input_t1 w160"/></td>
+								<td scope="col"><input type="text" th:field="${user.speciality}" class="input_t1 w160"/></td>
 								<th scope="col">취미</th>
-								<td scope="col"><input type="text" class="input_t1 w160"/></td>
+								<td scope="col"><input type="text" th:field="${user.hobby}" class="input_t1 w160"/></td>
 								<th scope="col">종교</th>
-								<td scope="col">
-									<select name="" class="select_type01 w170">
-										<option value="">기독교</option>
-										<option value="">불교</option>
-										<option value="">이슬람교</option>
-									</select>
-								</td>
+								<td scope="col"><input type="text" th:field="${user.religion}" class="input_t1 w175"/></td>
 							</tr>
 						</table>
 					</div>
@@ -262,11 +256,12 @@
 						</table>
 
 						<div class="btn_center2">
-							<span class="blue_button"><button type="blue_button" onclick="go_link('wrt02')">다음</button></span>
+							<span class="gray_button3"><button type="gray_button3" th:formaction="@{/user/tmpSave}">이전</button></span>
+							<span class="gray_button2"><button type="gray_button2" th:formaction="@{/user/tmpSave}">임시저장</button></span>
+							<span class="blue_button"><button type="blue_button" th:formaction="@{/user/save}">저장</button></span>
 						</div>
 					</div>
 						<!-- //본문시작 -->
-
 				</form>
 
 			</div>

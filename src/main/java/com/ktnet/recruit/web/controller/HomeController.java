@@ -7,6 +7,7 @@ import com.ktnet.recruit.web.jobInfo.JobInfo;
 import com.ktnet.recruit.web.jobInfo.JobInfoService;
 import com.ktnet.recruit.web.policy.Policy;
 import com.ktnet.recruit.web.policy.PolicyDto;
+import com.ktnet.recruit.web.user.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,6 +68,9 @@ public class HomeController {
         FirstPage findUser = firstPageService.findById(userId);
         FirstPageDto dto = FirstPageDto.toDto(findUser);
         model.addAttribute("dto",dto);
+
+        // 유저 정보 내려주기
+        model.addAttribute("user",new UserDto());
         loggger.info("=== [  end] dispWrt01(HttpServletRequest request, Model model) ===");
         return "wrt_01_";
     }

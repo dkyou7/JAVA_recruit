@@ -1,8 +1,6 @@
-package com.ktnet.recruit.web.repository;
+package com.ktnet.recruit.web.user;
 
-import com.ktnet.recruit.web.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User,Long> {
-    User findByRegEmpNum(String regular_emp_num);
 }
