@@ -16,10 +16,11 @@ public class PolicyController {
     private final PolicyService policyService;
 
     @PostMapping("/permit")
-    public String permit_policy_page(Policy policy){
-        if(policy.isAgree()){
+    public String permit_policy_page(PolicyDto dto){
+        if(dto.isAgree()){
+            Policy policy = Policy.toEntity(dto);
             policyService.save(policy);
-            return "redirect:/process";
+            return "redirect:/wrt01";
         }
         return "redirect:/policy";
     }

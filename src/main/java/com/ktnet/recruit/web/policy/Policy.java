@@ -23,11 +23,11 @@ public class Policy {
         this.agreeChk3 = b2;
     }
 
-    public boolean isAgree() {
-        if(this.agreeChk1 && this.agreeChk2 && this.agreeChk3){
-            return true;
-        }else{
-            return false;
-        }
+    public static Policy toEntity(PolicyDto dto) {
+        return Policy.builder()
+                .agreeChk1(dto.getAgreeChk1())
+                .agreeChk2(dto.getAgreeChk2())
+                .agreeChk3(dto.getAgreeChk3())
+                .build();
     }
 }

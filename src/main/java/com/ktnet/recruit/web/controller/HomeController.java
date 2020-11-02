@@ -4,6 +4,7 @@ import com.ktnet.recruit.web.first_page.FirstPageDto;
 import com.ktnet.recruit.web.jobInfo.JobInfo;
 import com.ktnet.recruit.web.jobInfo.JobInfoService;
 import com.ktnet.recruit.web.policy.Policy;
+import com.ktnet.recruit.web.policy.PolicyDto;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,10 +38,7 @@ public class HomeController {
     public String dispPolicy(Model model){
         loggger.info("=== [start] dispPolicy(Model model) ===");
 
-        model.addAttribute("dto",new Policy(false,false,false));
-        loggger.info("=== [jobInfoService.findAll()] ===");
-        List<JobInfo> list = jobInfoService.findAll();
-        model.addAttribute("gubun",list);
+        model.addAttribute("dto",new PolicyDto(false,false,false));
 
         loggger.info("=== [  end] dispPolicy(Model model) ===");
         return "policy";

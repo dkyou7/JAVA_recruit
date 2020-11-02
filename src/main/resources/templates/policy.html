@@ -5,7 +5,7 @@
 	  layout:decorator="layout/default">
 	<div layout:fragment="contentFragment">
 		<div id="wrap">
-			<div id="content">
+			<form method="post" th:action="@{/policy/permit}" th:object="${dto}" id="content">
 				<div class="line pd_t40">
 					<!-- 본문시작 -->
 					<h3>입사지원 시 개인정보 수집 및 이용에 대한 안내</h3>
@@ -19,7 +19,7 @@
 							회사는 <span>홈페이지(http://www.ktnet.co.kr)</span> 웹 문서를 통한 사용자 입력 방법으로 개인정보를 수집하며,<br />
 							경우에 따라 입사진행과정에서 출력된 형태의 종이문서 혹은 이메일로 일부 정보를 수집할 수도 있습니다.
 						</div>
-						<p aria-label="c1"><input id="c1" type="checkbox" class="chekbox_type01" />수집하는 개인정보의 항목에 동의합니다.</p>
+						<p aria-label="c1"><input id="c1" th:field="*{agreeChk1}" type="checkbox" class="chekbox_type01" />수집하는 개인정보의 항목에 동의합니다.</p>
 					</div>
 
 					<h1 class="mr_t30"><b>개인정보 수집 및 이용목적</b></h1>
@@ -27,7 +27,7 @@
 						<div>
 							입사전형 진행, 지원자의 입사 지원서 수정, 합격 여부 확인, 회사의 합격 또는 불합격 및 기타 채용관련 사항과 관련한 입사 지원자와의 의사소통, 학력 및 경력사항, 자격증빙 확인
 						</div>
-						<p><input type="checkbox" class="chekbox_type01" />수집하는 개인정보의 항목에 동의합니다.</p>
+						<p><input type="checkbox" th:field="*{agreeChk2}" class="chekbox_type01" />수집하는 개인정보의 항목에 동의합니다.</p>
 					</div>
 
 					<h1 class="mr_t30"><b>개인정보의 보유 및 이용기간</b></h1>
@@ -35,7 +35,7 @@
 						<div>
 							입사지원자의 개인정보는 회사의 인력 풀에 저장되어, 채용이 필요한 경우 해당 인력 풀에서 상시 채용을 위하여 이용됩니다. <br />입사지원자가 개인정보의 삭제를 아래에 기재된 담당자의 이메일로 요청하게 될 경우 지체 없이 해당 정보를 삭제합니다.
 						</div>
-						<p><input type="checkbox" class="chekbox_type01" />개인정보의 항목에 동의합니다.</p>
+						<p><input type="checkbox" th:field="*{agreeChk3}" class="chekbox_type01" />개인정보의 항목에 동의합니다.</p>
 					</div>
 
 					<div class="btn_center2">
@@ -60,7 +60,7 @@
 <!--					</div>-->
 					<!-- //본문시작 -->
 				</div><!-- /.line -->
-			</div><!-- /#content -->
+			</form><!-- /#content -->
 	<!--		<div id="footer">Copyright 2020 KTNET All Rights Reserved.</div>-->
 		</div><!-- /#wrapper -->
 		<!-- policy.html 고유 스크립트 추가 -->
