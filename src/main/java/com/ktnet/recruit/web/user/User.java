@@ -23,6 +23,11 @@ public class User {
     private String speciality;
     private String hobby;
     private String religion;
+    private String applyNumber;
+
+    public User(String applyNumber) {
+        this.applyNumber = applyNumber;
+    }
 
     public static User toEntity(UserDto dto) {
         return User.builder()
@@ -35,6 +40,20 @@ public class User {
                 .speciality(dto.getSpeciality())
                 .hobby(dto.getHobby())
                 .religion(dto.getReligion())
+                .applyNumber(dto.getApplyNumber())
                 .build();
+    }
+
+    public void update(User tmpUser) {
+         this.name = tmpUser.getName();
+         this.c_name = tmpUser.getC_name();
+         this.email = tmpUser.getEmail();
+         this.phoneNumber = tmpUser.getPhoneNumber();
+         this.homeNumber = tmpUser.getHomeNumber();
+         this.isMarried = tmpUser.getIsMarried();
+         this.speciality = tmpUser.getSpeciality();
+         this.hobby = tmpUser.getHobby();
+         this.religion = tmpUser.getReligion();
+         this.applyNumber = tmpUser.getApplyNumber();
     }
 }

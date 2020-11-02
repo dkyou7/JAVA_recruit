@@ -7,7 +7,9 @@ import com.ktnet.recruit.web.jobInfo.JobInfo;
 import com.ktnet.recruit.web.jobInfo.JobInfoService;
 import com.ktnet.recruit.web.policy.Policy;
 import com.ktnet.recruit.web.policy.PolicyDto;
+import com.ktnet.recruit.web.user.User;
 import com.ktnet.recruit.web.user.UserDto;
+import com.ktnet.recruit.web.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +30,7 @@ public class HomeController {
     private final Logger loggger = LoggerFactory.getLogger(this.getClass());
     private final JobInfoService jobInfoService;
     private final FirstPageService firstPageService;
+    private final UserService userService;
 
     @GetMapping("/")
     public String home(Model model){
@@ -65,12 +68,14 @@ public class HomeController {
         if(userId==null){
             return "redirect:/";
         }
-        FirstPage findUser = firstPageService.findById(userId);
-        FirstPageDto dto = FirstPageDto.toDto(findUser);
+        FirstPage firstPage = firstPageService.findById(userId);
+        FirstPageDto dto = FirstPageDto.toDto(firstPage);
         model.addAttribute("dto",dto);
 
         // 유저 정보 내려주기
-        model.addAttribute("user",new UserDto());
+        User findUser = userService.findByApplyNumber(dto.getApplyNumber());
+        UserDto userDto = UserDto.toDto(findUser);  // user to userdto
+        model.addAttribute("user",userDto);
         loggger.info("=== [  end] dispWrt01(HttpServletRequest request, Model model) ===");
         return "wrt_01_";
     }

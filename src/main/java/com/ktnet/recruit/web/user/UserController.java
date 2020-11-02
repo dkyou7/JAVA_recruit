@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequiredArgsConstructor
@@ -13,9 +14,25 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/tmpSave")
-    public String save(UserDto userDto){
-        User tmpUser = User.toEntity(userDto);
-        userService.save(tmpUser);
+    public String tmpSave(UserDto userDto){
+        System.out.println("applyNumber = " + userDto.getApplyNumber());
+        User findUser = userService.findByApplyNumber(userDto.getApplyNumber());
+        if(findUser.getId()==null){
+            userService.save(User.toEntity(userDto));
+        }else{
+            userService.update(findUser.getId(),User.toEntity(userDto));
+        }
         return "redirect:/wrt01";
+    }
+    @PostMapping("/save")
+    public String save(UserDto userDto){
+        System.out.println("applyNumber = " + userDto.getApplyNumber());
+        User findUser = userService.findByApplyNumber(userDto.getApplyNumber());
+        if(findUser.getId()==null){
+            userService.save(User.toEntity(userDto));
+        }else{
+            userService.update(findUser.getId(),User.toEntity(userDto));
+        }
+        return "redirect:/wrt02";
     }
 }

@@ -50,6 +50,7 @@
 								</td>
 								<th scope="col">수험번호</th>
 								<td scope="col">
+									<input type="hidden" th:field="${user.applyNumber}">
 									<p type="text" th:text="*{applyNumber}" class="mr_b5 w175"></p>
 								</td>
 							</tr>
@@ -112,9 +113,9 @@
 							</tr>
 							<tr>
 								<th scope="col">(집)전화</th>
-								<td scope="col"><input type="text" th:field="${user.phoneNumber}" class="input_t1 w160"/></td>
+								<td scope="col"><input type="text" th:field="${user.homeNumber}" class="input_t1 w160"/></td>
 								<th scope="col">휴대폰</th>
-								<td scope="col"><input type="text" th:field="${user.homeNumber}" class="input_t1 w175"/></td>
+								<td scope="col"><input type="text" th:field="${user.phoneNumber}" class="input_t1 w175"/></td>
 							</tr>
 							<tr>
 								<th scope="col">신장</th>
