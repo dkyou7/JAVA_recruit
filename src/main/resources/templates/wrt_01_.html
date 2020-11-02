@@ -23,7 +23,7 @@
 				</ul>
 
 					<!-- 본문시작 -->
-				<form th:action="@{#}" method="post">
+				<form th:action="@{#}" method="post" th:object="${dto}">
 					<div class="view2 w885">
 						<table summary="지원구분" class="w885">
 						<caption>"</caption>
@@ -38,12 +38,7 @@
 							<tr>
 								<th scope="col">지원구분</th>
 								<td scope="col">
-									<p class="w175 mr_b5">신입</p>
-	<!--								<select name="" class="select_type01 w170">-->
-	<!--									<option value="">산업</option>-->
-	<!--									<option value="">구분1</option>-->
-	<!--									<option value="">구분2</option>-->
-	<!--								</select>-->
+									<p class="w175 mr_b5" th:text="*{applyInfoGubun}">신입</p>
 								</td>
 								<th scope="col">직종</th>
 								<td scope="col">
@@ -54,12 +49,14 @@
 									</select>
 								</td>
 								<th scope="col">수험번호</th>
-								<td scope="col"><input type="text" class="input_t1 w175"/></td>
+								<td scope="col">
+									<p type="text" th:text="*{applyNumber}" class="mr_b5 w175"></p>
+								</td>
 							</tr>
 							<tr>
 								<th scope="col">지원분야</th>
-								<td scope="col" colspan="2">
-									<select name="" class="select_type01 w170">
+								<td scope="col" colspan="5">
+									<select name="" class="select_type01 w300">
 										<option value="">전산</option>
 										<option value="">분야2</option>
 										<option value="">분야3</option>

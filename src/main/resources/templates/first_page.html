@@ -28,8 +28,8 @@
 								<tr>
 									<th scope="row">지원구분</th>
 									<td>
-										<select th:field="*{applyInfoGubun}" class="select_type01 w170">
-											<option value=""> 선택 </option>
+										<select class="select_type01 w170" th:name="test">
+											<option value="선택"> 선택 </option>
 											<option th:each="val : ${gubun}"
 													th:value="${val?.recruitName}"
 													th:utext="${val?.recruitName}"></option>

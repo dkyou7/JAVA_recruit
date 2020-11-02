@@ -1,6 +1,8 @@
 package com.ktnet.recruit.web.controller;
 
+import com.ktnet.recruit.web.first_page.FirstPage;
 import com.ktnet.recruit.web.first_page.FirstPageDto;
+import com.ktnet.recruit.web.first_page.FirstPageService;
 import com.ktnet.recruit.web.jobInfo.JobInfo;
 import com.ktnet.recruit.web.jobInfo.JobInfoService;
 import com.ktnet.recruit.web.policy.Policy;
@@ -12,6 +14,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -20,6 +26,7 @@ public class HomeController {
 
     private final Logger loggger = LoggerFactory.getLogger(this.getClass());
     private final JobInfoService jobInfoService;
+    private final FirstPageService firstPageService;
 
     @GetMapping("/")
     public String home(Model model){
@@ -50,7 +57,17 @@ public class HomeController {
     }
 
     @GetMapping("/wrt01")
-    public String dispWrt01(){
+    public String dispWrt01(HttpServletRequest request, Model model) throws IOException {
+        loggger.info("=== [start] dispWrt01(HttpServletRequest request, Model model) ===");
+        HttpSession session = request.getSession();
+        Long userId = (Long) session.getAttribute("userSession");
+        if(userId==null){
+            return "redirect:/";
+        }
+        FirstPage findUser = firstPageService.findById(userId);
+        FirstPageDto dto = FirstPageDto.toDto(findUser);
+        model.addAttribute("dto",dto);
+        loggger.info("=== [  end] dispWrt01(HttpServletRequest request, Model model) ===");
         return "wrt_01_";
     }
 
