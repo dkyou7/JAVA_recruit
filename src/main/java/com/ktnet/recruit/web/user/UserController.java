@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequiredArgsConstructor
@@ -12,6 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserController {
 
     private final UserService userService;
+
+    @PostMapping("/saveImage")
+    public String saveImage(@RequestParam("filename") MultipartFile multipartFile){
+        System.out.println("multipartFile.getOriginalFilename() = " + multipartFile.getOriginalFilename());
+        return "name";
+    }
 
     @PostMapping("/tmpSave")
     public String tmpSave(UserDto userDto){

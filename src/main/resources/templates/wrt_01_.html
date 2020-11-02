@@ -84,8 +84,13 @@
 								<td scope="col" colspan="2" rowspan="6" style="background:none;">
 									<div class="section_photo">
 										<dl>
-											<dt style="display:block;">사진</dt>
-											<dd><input type="text" class="input_t1 w185" /><button type="button" class="file_btn mr_l5 mr_t7">찾아보기</button></dd>
+											<div id="image_preview" >
+												<img th:src="${picPath}" name="${picPath}" style="min-width: 150px;max-width: 200px;max-height: 200px;">
+											</div>
+											<dt id="image_tmp" style="display:block;">사진</dt>
+											<dd>
+												<input type="file" id="img" accept=".jpg,.jpeg,.png,.gif" name="filename" class="file_btn mr_l5 mr_t7"/>
+											</dd>
 											<dd class="bd_n txt"><em>※</em> <span>파일명 : 수험번호로 저장</span><br />BMP, JPG만 가능합니다. (사이즈500kb이내)</dd>
 										</dl>
 									</div>
@@ -268,6 +273,24 @@
 			</div>
 			</div><!-- /.container -->
 		</div><!-- /#content -->
+	<script>
+		// 이미지 업로드
+		$('#img').on('change', function() {
+			alert("저장버튼을 클릭하셔야 저장됩니다.");
+			ext = $(this).val().split('.').pop().toLowerCase(); //확장자
+			//배열에 추출한 확장자가 존재하는지 체크
+			if($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+				resetFormElement($(this)); //폼 초기화
+				window.alert('이미지 파일이 아닙니다! (gif, png, jpg, jpeg 만 업로드 가능)');
+			} else {
+				file = $('#img').prop("files")[0];
+				blobURL = window.URL.createObjectURL(file);
+				$('#image_preview img').attr('src', blobURL);
+				$('#image_tmp').slideUp();
+				$('#image_preview').slideDown(); //업로드한 이미지 미리보기
+			}
+		});
+	</script>
 	<!-- wrt_01_.html 고유 스크립트 추가 -->
 	<th:block layout:fragment="script">
 		<script th:src="@{/js/page/wrt_01_.js}"></script>
