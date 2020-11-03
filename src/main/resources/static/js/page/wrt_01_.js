@@ -11,5 +11,6 @@ $('#img').on('change', function() {
         blobURL = window.URL.createObjectURL(file);
         $('#image_preview img').attr('src', blobURL);
         $('#image_preview').slideDown(); //업로드한 이미지 미리보기
+        $('#image_tmp').slideUp();  // 기존 이미지 없애기
     }
 });

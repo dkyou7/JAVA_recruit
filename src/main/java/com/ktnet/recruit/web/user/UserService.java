@@ -1,5 +1,7 @@
 package com.ktnet.recruit.web.user;
 
+import com.ktnet.recruit.web.file.File;
+import com.ktnet.recruit.web.file.FileRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,7 @@ import javax.transaction.Transactional;
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
+    private final FileRepository fileRepository;
 
     @Transactional
     public void save(User user) {
@@ -17,9 +20,9 @@ public class UserService {
     }
 
     @Transactional
-    public User findByApplyNumber(String applyNumber) {
+    public User findByApplyNumber(String applyNumber,String filePath) {
         // 유저 정보가 없으면, 접수 번호를 기본생성자로 지정하여 만들어준다.
-        return userRepository.findByApplyNumber(applyNumber).orElse(new User(applyNumber));
+        return userRepository.findByApplyNumber(applyNumber).orElse(new User(applyNumber,filePath));
     }
 
     @Transactional

@@ -1,5 +1,6 @@
 package com.ktnet.recruit.web.user;
 
+import com.ktnet.recruit.web.file.File;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,8 +26,15 @@ public class User {
     private String religion;
     private String applyNumber;
 
-    public User(String applyNumber) {
+    // 1:1 단방향
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "fileId")
+    private File file;
+
+    public User(String applyNumber,String filePath) {
         this.applyNumber = applyNumber;
+        File file = new File(filePath);
+        this.file = file;
     }
 
     public static User toEntity(UserDto dto) {
@@ -41,6 +49,7 @@ public class User {
                 .hobby(dto.getHobby())
                 .religion(dto.getReligion())
                 .applyNumber(dto.getApplyNumber())
+                .file(dto.getFile())
                 .build();
     }
 
@@ -55,5 +64,10 @@ public class User {
          this.hobby = tmpUser.getHobby();
          this.religion = tmpUser.getReligion();
          this.applyNumber = tmpUser.getApplyNumber();
+         this.file = tmpUser.getFile();
+    }
+
+    public void setFile(File tmpFile) {
+        this.file = tmpFile;
     }
 }
