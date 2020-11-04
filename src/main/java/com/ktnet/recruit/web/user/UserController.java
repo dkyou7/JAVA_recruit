@@ -42,7 +42,6 @@ public class UserController {
             }
         }else{
             // 업데이트 하기 위해, 파일이 있다면, 지워주는 로직.
-            // todo: 삭제 시, sql을 물고있다 한번에 실행되 때문에, 삭제가 제대로 되지 않는 현상이 발생하였음. 해결해야한다.
             if(!ObjectUtils.isEmpty(byApplyNumber.getFile())){
 //            if(byApplyNumber.getFile().getFileSize() != null){
                 fileService.deleteProfileImageById(byApplyNumber.getId(),byApplyNumber.getFile().getId());
