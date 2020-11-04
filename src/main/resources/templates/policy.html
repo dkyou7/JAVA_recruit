@@ -6,6 +6,7 @@
 	<div layout:fragment="contentFragment">
 		<div id="wrap">
 			<form method="post" th:action="@{/policy/permit}" th:object="${dto}" id="content">
+				<input type="hidden" th:name="userId" th:value="${userId}"/>
 				<div class="line pd_t40">
 					<!-- 본문시작 -->
 					<h3>입사지원 시 개인정보 수집 및 이용에 대한 안내</h3>

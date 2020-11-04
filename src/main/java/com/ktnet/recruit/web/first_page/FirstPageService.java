@@ -1,10 +1,12 @@
 package com.ktnet.recruit.web.first_page;
 
+import com.ktnet.recruit.web.policy.Policy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -36,4 +38,10 @@ public class FirstPageService {
     public FirstPage findByApplyNumber(String applyNumber) {
         return firstPageRepository.findByApplyNumber(applyNumber);
     }
+    @Transactional
+    public void setPolicy(Long firstPageId, Policy policy) {
+        FirstPage find = firstPageRepository.findById(firstPageId).orElseThrow(EntityNotFoundException::new);
+        find.setPolicy(policy);
+    }
+
 }

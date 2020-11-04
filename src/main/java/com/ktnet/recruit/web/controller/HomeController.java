@@ -48,9 +48,14 @@ public class HomeController {
     }
 
     @GetMapping("/policy")
-    public String dispPolicy(Model model){
+    public String dispPolicy(HttpServletRequest request, Model model){
         loggger.info("=== [start] dispPolicy(Model model) ===");
-
+        HttpSession session = request.getSession();
+        Long userId = (Long) session.getAttribute("userSession");
+        if(userId==null){
+            return "redirect:/";
+        }
+        model.addAttribute("userId",userId);
         model.addAttribute("dto",new PolicyDto(false,false,false));
 
         loggger.info("=== [  end] dispPolicy(Model model) ===");

@@ -1,5 +1,6 @@
 package com.ktnet.recruit.web.policy;
 
+import com.ktnet.recruit.web.first_page.FirstPage;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,6 +18,9 @@ public class Policy {
     private Boolean agreeChk2;
     private Boolean agreeChk3;
 
+    @OneToOne(mappedBy = "policy")
+    private FirstPage firstPage;
+
     public Policy(boolean b, boolean b1, boolean b2) {
         this.agreeChk1 = b;
         this.agreeChk2 = b1;
@@ -28,6 +32,7 @@ public class Policy {
                 .agreeChk1(dto.getAgreeChk1())
                 .agreeChk2(dto.getAgreeChk2())
                 .agreeChk3(dto.getAgreeChk3())
+                .firstPage(dto.getFirstPage())
                 .build();
     }
 }
