@@ -81,7 +81,7 @@
 								<col width="*" />
 							</colgroup>
 							<tr>
-								<td scope="col" colspan="2" rowspan="6" style="background:none;">
+								<td scope="col" colspan="2" rowspan="7" style="background:none;">
 									<div class="section_photo">
 										<dl>
 											<div id="image_preview" >
@@ -100,12 +100,12 @@
 								</td>
 								<th scope="col">성명</th>
 								<td scope="col"><input type="text" th:field="${user.name}" class="input_t1 w160"/></td>
-								<th scope="col">한문</th>
-								<td scope="col"><input type="text" th:field="${user.cName}" class="input_t1 w175"/></td>
+								<th scope="col">영문성명</th>
+								<td scope="col"><input type="text" th:field="${user.eName}" class="input_t1 w175"/></td>
 							</tr>
 							<tr>
-								<th scope="col">주민등록번호</th>
-								<td scope="col"><input type="text" class="input_t1 w160"/></td>
+								<th scope="col">휴대폰</th>
+								<td scope="col"><input type="text" th:field="${user.phoneNumber}"  class="input_t1 w160"/></td>
 								<th scope="col">이메일(필수)</th>
 								<td scope="col" style="font-size:11px;color:#828282;"><input type="text" th:field="${user.email}" class="input_t1 w175 mr_b5"/><br /><em style="font-size:12px;">※</em><b> 메일로 합격통보</b>합니다.</td>
 							</tr>
@@ -120,16 +120,14 @@
 								<td scope="col" colspan="3"><input type="text" class="input_t1 w_p97"/></td>
 							</tr>
 							<tr>
-								<th scope="col">(집)전화</th>
-								<td scope="col"><input type="text" th:field="${user.homeNumber}" class="input_t1 w160"/></td>
-								<th scope="col">휴대폰</th>
-								<td scope="col"><input type="text" th:field="${user.phoneNumber}" class="input_t1 w175"/></td>
+								<th scope="col">특기</th>
+								<td scope="col"><input type="text" th:field="${user.speciality}" class="input_t1 w160"/></td>
+								<th scope="col">취미</th>
+								<td scope="col"><input type="text"  th:field="${user.hobby}" class="input_t1 w175"/></td>
 							</tr>
 							<tr>
-								<th scope="col">신장</th>
-								<td scope="col"><input type="text" class="input_t1 w140"/> cm</td>
-								<th scope="col">체중</th>
-								<td scope="col"><input type="text" class="input_t1 w140"/> kg</td>
+								<th scope="col">종교</th>
+								<td scope="col"><input type="text" th:field="${user.religion}" class="input_t1 w160"/></td>
 								<th scope="col">혼인여부</th>
 								<td scope="col">
 									<select name="isMarried" class="select_type01 w170">
@@ -138,14 +136,6 @@
 										<option value="false">미혼</option>
 									</select>
 								</td>
-							</tr>
-							<tr>
-								<th scope="col">특기</th>
-								<td scope="col"><input type="text" th:field="${user.speciality}" class="input_t1 w160"/></td>
-								<th scope="col">취미</th>
-								<td scope="col"><input type="text" th:field="${user.hobby}" class="input_t1 w160"/></td>
-								<th scope="col">종교</th>
-								<td scope="col"><input type="text" th:field="${user.religion}" class="input_t1 w175"/></td>
 							</tr>
 						</table>
 					</div>

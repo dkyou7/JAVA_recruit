@@ -97,6 +97,7 @@ public class UserController {
             userService.updateUserInfo(findUser.getId(), answer);
         }
 
+        // todo: user가 메인이 되는 것이 아니라, first page 의 수험번호가 메인이 되도록 고치자..
         // firstpage to user session
         HttpSession session = request.getSession();
         session.setAttribute("userSession", answer.getId());

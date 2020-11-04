@@ -17,7 +17,7 @@ public class User {
     private Long id;
 
     private String name;
-    private String c_name;
+    private String e_name;
     private String email;
     private String phoneNumber;
     private String homeNumber;
@@ -46,7 +46,7 @@ public class User {
     public static User toEntity(UserDto dto) {
         return User.builder()
                 .name(dto.getName())
-                .c_name(dto.getCName())
+                .e_name(dto.getEName())
                 .email(dto.getEmail())
                 .phoneNumber(dto.getPhoneNumber())
                 .homeNumber(dto.getHomeNumber())
@@ -61,7 +61,7 @@ public class User {
 
     public void updateUserInfo(User tmpUser) {
          this.name = tmpUser.getName();
-         this.c_name = tmpUser.getC_name();
+         this.e_name = tmpUser.getE_name();
          this.email = tmpUser.getEmail();
          this.phoneNumber = tmpUser.getPhoneNumber();
          this.homeNumber = tmpUser.getHomeNumber();
@@ -73,8 +73,8 @@ public class User {
          this.file = tmpUser.getFile();
     }
 
-    public void setFile(File tmpFile) {
-        this.file = tmpFile;
+    public void setFile(File file) {
+        this.file = file;
     }
 
     public void updateQuestion(Question question) {

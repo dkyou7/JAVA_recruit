@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class UserDto {
 
     private String name;
-    private String cName;
+    private String eName;
     private String email;
     private String phoneNumber;
     private String homeNumber;
@@ -31,7 +31,7 @@ public class UserDto {
     public static UserDto toDto(User entity) {
         UserDto answer = UserDto.builder()
                 .name(entity.getName())
-                .cName(entity.getC_name())
+                .eName(entity.getE_name())
                 .email(entity.getEmail())
                 .phoneNumber(entity.getPhoneNumber())
                 .homeNumber(entity.getHomeNumber())

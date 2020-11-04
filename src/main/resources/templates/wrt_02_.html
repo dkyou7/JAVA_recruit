@@ -28,7 +28,8 @@
 					<table summary="학력" class="w885">
 					<caption>학력</caption>
 						<colgroup>
-							<col width="190px" />
+							<col width="100px" />
+							<col width="100px" />
 							<col width="240px" />
 							<col width="70px" />
 							<col width="120x" />
@@ -37,7 +38,8 @@
 							<col width="*" />
 						</colgroup>
 						<tr>
-							<th scope="col">입학년월~졸업년월<br /><span>(yyyy-mm)</span></th>
+							<th scope="col">입학년월<br /><span>(yyyy-mm)</span></th>
+							<th scope="col">졸업년월<br /><span>(yyyy-mm)</span></th>
 							<th scope="col">학교명</th>
 							<th scope="col">소재지</th>
 							<th scope="col">학과</th>
@@ -46,12 +48,14 @@
 							<th scope="col">부전공</th>
 						</tr>
 						<tr>
-							<td scope="col"><input type="text" class="input_t1 w60"/> - <input type="text" class="input_t1 w60"/></td>
-							<td scope="col"><input type="text" class="input_t1 w80"/>
-								<select name="" class="select_type01 w110">
+							<td scope="col"><input type="month" class="input_t1 w100"/></td>
+							<td scope="col"><input type="month" class="input_t1 w100"/></td>
+							<td scope="col"><input type="text" class="input_t1 w70"/>
+								<select name="" class="select_type01 w80">
 									<option value="">고등학교</option>
 									<option value="">대학교</option>
-									<option value="">대학</option>
+									<option value="">석사</option>
+									<option value="">박사</option>
 								</select>
 							</td>
 							<td scope="col">
@@ -69,11 +73,11 @@
 									<option value="">중퇴</option>
 								</select>
 							</td>
-							<td scope="col"><input type="text" class="input_t1 w45"/> /
-								<select name="" class="select_type01 w57" style="margin-top:5px;">
+							<td scope="col"><input type="text" class="input_t1 w60"/> /
+								<select name="" class="select_type01 w60" style="margin-top:5px;">
 									<option value="">4.0</option>
-									<option value="">3.5</option>
-									<option value="">3.0</option>
+									<option value="">4.3</option>
+									<option value="">4.5</option>
 								</select>
 							</td>
 							<td scope="col"><input type="text" class="input_t1 w70"/></td>
@@ -193,55 +197,6 @@
 						</tr>
 					</table>
 					<p>※ <b>최근 2년내 어학점수를 표시</b>하시기 바랍니다.</p>
-				</div>
-
-				<h1 class="mr_t40">가 족</h1>
-				<div class="view2 w885">
-					<table summary="가족" class="w885">
-					<caption>가족</caption>
-						<colgroup>
-							<col width="160px" />
-							<col width="160px" />
-							<col width="140px" />
-							<col width="160px" />
-							<col width="160px" />
-							<col width="*" />
-						</colgroup>
-						<tr>
-							<th scope="col">관계</th>
-							<th scope="col">성명</th>
-							<th scope="col">생년월일<br /><span>(yyyy-mm)</span></th>
-							<th scope="col">학력</th>
-							<th scope="col">직업</th>
-							<th scope="col">동거여부</th>
-						</tr>
-						<tr>
-							<td scope="col">
-								<select name="" class="select_type01 w_p98">
-									<option value="">서울</option>
-									<option value="">경기</option>
-									<option value="">부산</option>
-								</select>
-							</td>
-							<td scope="col"><input type="text" class="input_t1 w_p92"/></td>
-							<td scope="col">
-								<select name="" class="select_type01 w_p98">
-									<option value="">서울</option>
-									<option value="">경기</option>
-									<option value="">부산</option>
-								</select>
-							</td>
-							<td scope="col">
-								<select name="" class="select_type01 w_p98">
-									<option value="">서울</option>
-									<option value="">경기</option>
-									<option value="">부산</option>
-								</select>
-							</td>
-							<td scope="col"><input type="text" class="input_t1 w_p92"/></td>
-							<td scope="col"><input type="text" class="input_t1 w_p85"/></td>
-						</tr>
-					</table>
 				</div>
 
 				<h1 class="mr_t40">첨부파일</h1>
