@@ -7,6 +7,9 @@ import com.ktnet.recruit.web.first_page.FirstPageService;
 import com.ktnet.recruit.web.jobInfo.JobInfo;
 import com.ktnet.recruit.web.jobInfo.JobInfoService;
 import com.ktnet.recruit.web.policy.PolicyDto;
+import com.ktnet.recruit.web.question.Question;
+import com.ktnet.recruit.web.question.QuestionDto;
+import com.ktnet.recruit.web.question.QuestionService;
 import com.ktnet.recruit.web.user.User;
 import com.ktnet.recruit.web.user.UserDto;
 import com.ktnet.recruit.web.user.UserService;
@@ -16,6 +19,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.thymeleaf.util.StringUtils;
 
@@ -33,6 +37,7 @@ public class HomeController {
     private final JobInfoService jobInfoService;
     private final FirstPageService firstPageService;
     private final UserService userService;
+    private final QuestionService questionService;
 
     @GetMapping("/")
     public String home(Model model){
@@ -95,7 +100,29 @@ public class HomeController {
     }
 
     @GetMapping("/wrt03")
-    public String dispWrt03(){
+    public String dispWrt03(HttpServletRequest request, Model model) throws IOException {
+        loggger.info("=== [start] dispWrt03(HttpServletRequest request, Model model) ===");
+        HttpSession session = request.getSession();
+        Long userId = (Long) session.getAttribute("userSession");
+        if(userId==null){
+            return "redirect:/";
+        }
+        // 유저 정보 내려주기
+        model.addAttribute("userId",userId);
+
+        // 자소서 정보 내려주기
+        User findUser = userService.findById(userId);
+
+        // 없으면, 초기화시켜주는 로직 추가
+        if(ObjectUtils.isEmpty(findUser.getQuestion())){
+            Question question = Question.initQuestion();
+            findUser.initQuestion(question);
+        }
+        QuestionDto questionDto = QuestionDto.toDto(findUser.getQuestion());
+        model.addAttribute("dto",questionDto);
+
+
+        loggger.info("=== [  end] dispWrt03(HttpServletRequest request, Model model) ===");
         return "wrt_03_";
     }
 

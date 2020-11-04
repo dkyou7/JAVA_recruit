@@ -17,6 +17,8 @@ import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.thymeleaf.util.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Collection;
 
 @Controller
@@ -43,7 +45,7 @@ public class UserController {
             }
         }else{
             // 업데이트 하기 위해, 파일이 있다면, 지워주는 로직.
-            if(!ObjectUtils.isEmpty(byApplyNumber.getFile())){
+            if(!StringUtils.isEmpty(byApplyNumber.getFile().getOriginalFileName())){
                 fileService.deleteProfileImageById(byApplyNumber.getId(),byApplyNumber.getFile().getId());
             }
             // 저장 로직.
@@ -57,14 +59,14 @@ public class UserController {
         if(findUser.getId()==null){
             userService.save(User.toEntity(userDto));
         }else{
-            userService.update(findUser.getId(),User.toEntity(userDto));
+            userService.updateUserInfo(findUser.getId(),User.toEntity(userDto));
         }
         return "redirect:/wrt01";
     }
 
     // 저장 후, 다음으로 넘어가는 로직
     @PostMapping("/save")
-    public String save(UserDto userDto, MultipartHttpServletRequest multipartHttpServletRequest) throws Exception {
+    public String save(HttpServletRequest request, UserDto userDto, MultipartHttpServletRequest multipartHttpServletRequest) throws Exception {
         MultipartFile pictureFile = multipartHttpServletRequest.getFile("pictureFile");
         User byApplyNumber = userService.findByApplyNumber(userDto.getApplyNumber(),initPath);
 
@@ -77,7 +79,7 @@ public class UserController {
             }
         }else{
             // 업데이트 하기 위해, 파일이 있다면, 지워주는 로직.
-            if(!ObjectUtils.isEmpty(byApplyNumber.getFile())){
+            if(!StringUtils.isEmpty(byApplyNumber.getFile().getOriginalFileName())){
                 fileService.deleteProfileImageById(byApplyNumber.getId(),byApplyNumber.getFile().getId());
             }
             // 저장 로직.
@@ -88,11 +90,16 @@ public class UserController {
         }
 
         User findUser = userService.findByApplyNumber(userDto.getApplyNumber(),initPath);
+        User answer = User.toEntity(userDto);
         if(findUser.getId()==null){
-            userService.save(User.toEntity(userDto));
+            userService.save(answer);
         }else{
-            userService.update(findUser.getId(),User.toEntity(userDto));
+            userService.updateUserInfo(findUser.getId(), answer);
         }
+
+        // firstpage to user session
+        HttpSession session = request.getSession();
+        session.setAttribute("userSession", answer.getId());
         return "redirect:/wrt02";
     }
 

@@ -5,34 +5,19 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
-@Getter @Builder
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
-public class Policy {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "policy_id")
-    private Long id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter @Builder
+public class Policy {
     private Boolean agreeChk1;
     private Boolean agreeChk2;
     private Boolean agreeChk3;
-
-    @OneToOne(mappedBy = "policy")
-    private FirstPage firstPage;
-
-    public Policy(boolean b, boolean b1, boolean b2) {
-        this.agreeChk1 = b;
-        this.agreeChk2 = b1;
-        this.agreeChk3 = b2;
-    }
-
-    public static Policy toEntity(PolicyDto dto) {
-        return Policy.builder()
-                .agreeChk1(dto.getAgreeChk1())
-                .agreeChk2(dto.getAgreeChk2())
-                .agreeChk3(dto.getAgreeChk3())
-                .firstPage(dto.getFirstPage())
-                .build();
-    }
 }

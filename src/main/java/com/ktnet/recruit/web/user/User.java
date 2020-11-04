@@ -1,6 +1,7 @@
 package com.ktnet.recruit.web.user;
 
 import com.ktnet.recruit.web.file.File;
+import com.ktnet.recruit.web.question.Question;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,9 +27,14 @@ public class User {
     private String religion;
     private String applyNumber;
 
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "question_id")
+    private Question question;
+
+
     // 1:1 단방향
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "fileId")
+    @JoinColumn(name = "file_id")
     private File file;
 
     public User(String applyNumber,String filePath) {
@@ -53,7 +59,7 @@ public class User {
                 .build();
     }
 
-    public void update(User tmpUser) {
+    public void updateUserInfo(User tmpUser) {
          this.name = tmpUser.getName();
          this.c_name = tmpUser.getC_name();
          this.email = tmpUser.getEmail();
@@ -69,5 +75,13 @@ public class User {
 
     public void setFile(File tmpFile) {
         this.file = tmpFile;
+    }
+
+    public void updateQuestion(Question question) {
+        this.question = question;
+    }
+
+    public void initQuestion(Question question) {
+        this.question = question;
     }
 }

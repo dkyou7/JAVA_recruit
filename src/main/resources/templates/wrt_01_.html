@@ -92,7 +92,7 @@
 											</dd>
 											<dd class="bd_n txt">
 												<em>※</em>
-												<span>현재 저장된 파일명 :</span><span style="font-color:black; important!" th:text="${user.file?.originalFileName}" ></span>
+												<span>현재 저장된 파일명 :</span><span style="color:black; important!" th:text="${user.file?.originalFileName}" ></span>
 												<br />BMP, JPG만 가능합니다. (사이즈500kb이내)
 											</dd>
 										</dl>
@@ -266,7 +266,7 @@
 
 						<div class="btn_center2">
 							<span class="gray_button3"><button type="gray_button3" th:formaction="@{/user/tmpSave}">이전</button></span>
-							<span class="gray_button2"><button type="gray_button2" th:formaction="@{/user/tmpSave}">임시저장</button></span>
+							<span class="gray_button2"><button type="gray_button2" onclick="alert('임시저장완료');" th:formaction="@{/user/tmpSave}">임시저장</button></span>
 							<span class="blue_button"><button type="blue_button" th:formaction="@{/user/save}">저장</button></span>
 						</div>
 					</div>

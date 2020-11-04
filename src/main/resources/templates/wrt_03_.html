@@ -23,63 +23,67 @@
 					</ul>
 
 					<!-- 본문시작 -->
-					<h1>자기소개서</h1>
-					<p style="color: red">※ 자기소개서 미작성시 1차 서류전형때 불합격 처리됩니다.</p>
-					<div class="view2 w885">
-						<table summary="학력" class="w885">
-							<caption>학력</caption>
-							<colgroup>
-								<col width="200px" />
-								<col width="*" />
-							</colgroup>
-							<tr>
-								<th scope="col">성장과정<br>
-									<br>
-									(1000byte 이내, <br>
-									공백포함,
-									필수)</th>
-								<td scope="col"><textarea name="textarea" id="textarea" cols="95" rows="10"></textarea>
-								</th>
-							</tr>
-							<tr>
-								<th scope="col">지원동기 및 주요경력 업적<br>
-									<br>
-									(1800byte 이내, <br>
-									공백포함, 필수)</th>
-								<td scope="col"><textarea name="textarea" id="textarea" cols="95" rows="10"></textarea>
+					<form method="post" th:object="${dto}">
+						<input type="hidden" th:name="userId" th:value="${userId}">
+						<h1>자기소개서</h1>
+						<p style="color: red">※ 자기소개서 미작성시 1차 서류전형때 불합격 처리됩니다.</p>
+						<div class="view2 w885">
+							<table summary="학력" class="w885">
+								<caption>학력</caption>
+								<colgroup>
+									<col width="200px" />
+									<col width="*" />
+								</colgroup>
+								<tr>
+									<th scope="col">성장과정<br>
+										<br>
+										(1000byte 이내, <br>
+										공백포함,
+										필수)</th>
+									<td scope="col"><textarea name="textarea" th:field="*{question1}" cols="95" rows="10"></textarea>
+									</th>
 								</tr>
-							<tr>
-								<th scope="col">입사 후 업무추진 계획<br>
-									및 Vision<br>
-									<br>
-									(1400byte 이내, <br>
-									공백포함,
-									필수)</th>
-								<td scope="col"><textarea name="textarea" id="textarea" cols="95" rows="10"></textarea>
-							</tr>
-							<tr>
-								<th scope="col">조직 화합성 및 인성<br>
-									<br>(1000byte 이내, <br>
-									공백포함,
-									필수)</th>
-								<td scope="col"><textarea name="textarea" id="textarea" cols="95" rows="10"></textarea>
+								<tr>
+									<th scope="col">지원동기 및 주요경력 업적<br>
+										<br>
+										(1800byte 이내, <br>
+										공백포함, 필수)</th>
+									<td scope="col"><textarea name="textarea" th:field="*{question2}" cols="95" rows="10"></textarea>
+									</tr>
+								<tr>
+									<th scope="col">입사 후 업무추진 계획<br>
+										및 Vision<br>
+										<br>
+										(1400byte 이내, <br>
+										공백포함,
+										필수)</th>
+									<td scope="col"><textarea name="textarea" th:field="*{question3}" cols="95" rows="10"></textarea>
 								</tr>
-							<tr>
-								<th scope="col">기 타<br>
-									<br>
-									(500byte 이내, <br>
-									공백포함)</th>
-								<td scope="col"><textarea name="textarea" id="textarea" cols="95" rows="10"></textarea>
-							</tr>
-						</table>
+								<tr>
+									<th scope="col">조직 화합성 및 인성<br>
+										<br>(1000byte 이내, <br>
+										공백포함,
+										필수)</th>
+									<td scope="col"><textarea name="textarea" th:field="*{question4}" cols="95" rows="10"></textarea>
+									</tr>
+								<tr>
+									<th scope="col">기 타<br>
+										<br>
+										(500byte 이내, <br>
+										공백포함)</th>
+									<td scope="col"><textarea name="textarea" th:field="*{question5}"  cols="95" rows="10"></textarea>
+								</tr>
+							</table>
 
-					</div>
+						</div>
 
-					<div class="view2 w885"></div>
-					<div class="btn_center2">
-						<span class="gray_button3"><button type="gray_button3" onclick="go_link('wrt02')">이전</button></span>
-						<span class="blue_button"><button type="blue_button">저장</button></span>
-					</div>
+						<div class="view2 w885"></div>
+						<div class="btn_center2">
+							<span class="gray_button3"><button type="gray_button3" th:formaction="@{/question/tmpSave}">이전</button></span>
+							<span class="gray_button2"><button type="gray_button2" onclick="alert('임시저장완료');" th:formaction="@{/question/tmpSave}">임시저장</button></span>
+							<span class="blue_button"><button type="blue_button" th:formaction="@{/question/save}">저장</button></span>
+						</div>
+					</form>
 					<!-- //본문시작 -->
 				</div>
 			</div><!-- /.line -->
