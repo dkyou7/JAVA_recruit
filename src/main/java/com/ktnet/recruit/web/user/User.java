@@ -3,6 +3,7 @@ package com.ktnet.recruit.web.user;
 import com.ktnet.recruit.web.file.File;
 import com.ktnet.recruit.web.question.Question;
 import lombok.*;
+import org.thymeleaf.util.StringUtils;
 
 import javax.persistence.*;
 
@@ -20,7 +21,12 @@ public class User {
     private String e_name;
     private String email;
     private String phoneNumber;
-    private String homeNumber;
+
+    private String postcode;    // 우편번호
+    private String extraAddress;    // 부가정보 저장
+    private String address;     // 주소
+    private String detailAddress;   // 상세주소
+
     private String isMarried;
     private String speciality;
     private String hobby;
@@ -49,7 +55,10 @@ public class User {
                 .e_name(dto.getEName())
                 .email(dto.getEmail())
                 .phoneNumber(dto.getPhoneNumber())
-                .homeNumber(dto.getHomeNumber())
+                .postcode(dto.getPostcode())
+                .extraAddress(dto.getExtraAddress())
+                .address(dto.getAddress())
+                .detailAddress(dto.getDetailAddress())
                 .isMarried(dto.getIsMarried())
                 .speciality(dto.getSpeciality())
                 .hobby(dto.getHobby())
@@ -64,7 +73,10 @@ public class User {
          this.e_name = tmpUser.getE_name();
          this.email = tmpUser.getEmail();
          this.phoneNumber = tmpUser.getPhoneNumber();
-         this.homeNumber = tmpUser.getHomeNumber();
+         this.postcode = tmpUser.getPostcode();
+         this.extraAddress = tmpUser.getExtraAddress();
+         this.address = tmpUser.getAddress();
+         this.detailAddress = tmpUser.getDetailAddress();
          this.isMarried = tmpUser.getIsMarried();
          this.speciality = tmpUser.getSpeciality();
          this.hobby = tmpUser.getHobby();

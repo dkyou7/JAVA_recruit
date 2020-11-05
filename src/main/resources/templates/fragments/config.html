@@ -20,6 +20,9 @@
             <script th:src="@{/js/common/bootstrap.min.js}"></script>
             <!-- 컨텐츠페이지의 스크립트 영역이 들어감 -->
             <th:block layout:fragment="script"/>
+
+            <!--autoload=false 파라미터를 이용하여 자동으로 로딩되는 것을 막습니다.-->
+            <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
         </head>
     </head>
 

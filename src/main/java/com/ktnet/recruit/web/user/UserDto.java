@@ -15,7 +15,11 @@ public class UserDto {
     private String eName;
     private String email;
     private String phoneNumber;
-    private String homeNumber;
+    private String postcode;    // 우편번호
+    private String extraAddress;    // 부가정보 저장
+    private String address;     // 주소
+    private String detailAddress;   // 상세주소
+
     private String isMarried;
     private String speciality;
     private String hobby;
@@ -34,8 +38,11 @@ public class UserDto {
                 .eName(entity.getE_name())
                 .email(entity.getEmail())
                 .phoneNumber(entity.getPhoneNumber())
-                .homeNumber(entity.getHomeNumber())
                 .isMarried(entity.getIsMarried())
+                .postcode(entity.getPostcode())
+                .extraAddress(entity.getExtraAddress())
+                .address(entity.getAddress())
+                .detailAddress(entity.getDetailAddress())
                 .speciality(entity.getSpeciality())
                 .hobby(entity.getHobby())
                 .religion(entity.getReligion())

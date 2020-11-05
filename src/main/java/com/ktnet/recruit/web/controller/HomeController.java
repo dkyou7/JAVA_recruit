@@ -60,7 +60,7 @@ public class HomeController {
         if(applyNumber==null){
             return "redirect:/";
         }
-        model.addAttribute("userId",applyNumber);
+        model.addAttribute("applyNumber",applyNumber);
         model.addAttribute("dto",new PolicyDto(false,false,false));
 
         loggger.info("=== [  end] dispPolicy(Model model) ===");
