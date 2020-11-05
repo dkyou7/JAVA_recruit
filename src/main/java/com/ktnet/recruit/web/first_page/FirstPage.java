@@ -2,6 +2,7 @@ package com.ktnet.recruit.web.first_page;
 
 import com.ktnet.recruit.web.policy.Policy;
 import com.ktnet.recruit.web.policy.PolicyDto;
+import com.ktnet.recruit.web.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,6 +25,10 @@ public class FirstPage {
     @Embedded
     private Policy policy;
 
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public static FirstPage toEntity(FirstPageDto dto) {
         return FirstPage.builder()
                 .password(dto.getPassword())
@@ -33,5 +38,9 @@ public class FirstPage {
     }
     public void updatePolicy(PolicyDto dto) {
         this.policy = PolicyDto.toEntity(dto);
+    }
+
+    public void updateUser(User answer) {
+        this.user = answer;
     }
 }

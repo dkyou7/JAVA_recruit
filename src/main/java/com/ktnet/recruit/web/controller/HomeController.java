@@ -56,11 +56,11 @@ public class HomeController {
     public String dispPolicy(HttpServletRequest request, Model model){
         loggger.info("=== [start] dispPolicy(Model model) ===");
         HttpSession session = request.getSession();
-        Long userId = (Long) session.getAttribute("userSession");
-        if(userId==null){
+        String applyNumber = (String) session.getAttribute("userSession");
+        if(applyNumber==null){
             return "redirect:/";
         }
-        model.addAttribute("userId",userId);
+        model.addAttribute("userId",applyNumber);
         model.addAttribute("dto",new PolicyDto(false,false,false));
 
         loggger.info("=== [  end] dispPolicy(Model model) ===");
@@ -76,11 +76,11 @@ public class HomeController {
     public String dispWrt01(HttpServletRequest request, Model model) throws IOException {
         loggger.info("=== [start] dispWrt01(HttpServletRequest request, Model model) ===");
         HttpSession session = request.getSession();
-        Long userId = (Long) session.getAttribute("userSession");
-        if(userId==null){
+        String applyNumber = (String) session.getAttribute("userSession");
+        if(applyNumber==null){
             return "redirect:/";
         }
-        FirstPage firstPage = firstPageService.findById(userId);
+        FirstPage firstPage = firstPageService.findByApplyNumber(applyNumber);
         FirstPageDto dto = FirstPageDto.toDto(firstPage);
         model.addAttribute("dto",dto);
 
@@ -103,15 +103,15 @@ public class HomeController {
     public String dispWrt03(HttpServletRequest request, Model model) throws IOException {
         loggger.info("=== [start] dispWrt03(HttpServletRequest request, Model model) ===");
         HttpSession session = request.getSession();
-        Long userId = (Long) session.getAttribute("userSession");
-        if(userId==null){
+        String applyNumber = (String) session.getAttribute("userSession");
+        if(applyNumber==null){
             return "redirect:/";
         }
         // 유저 정보 내려주기
-        model.addAttribute("userId",userId);
+        model.addAttribute("userId",applyNumber);
 
         // 자소서 정보 내려주기
-        User findUser = userService.findById(userId);
+        User findUser = userService.findByApplyNumber(applyNumber);
 
         // 없으면, 초기화시켜주는 로직 추가
         if(ObjectUtils.isEmpty(findUser.getQuestion())){

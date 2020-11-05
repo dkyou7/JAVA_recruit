@@ -2,6 +2,7 @@ package com.ktnet.recruit.web.user;
 
 import com.ktnet.recruit.web.file.File;
 import com.ktnet.recruit.web.file.FileService;
+import com.ktnet.recruit.web.first_page.FirstPageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,7 @@ public class UserController {
 
     private final UserService userService;
     private final FileService fileService;
+    private final FirstPageService firstPageService;
     private final String  initPath = "/static/images/profile.png";
 
     // 임시저장 로직
@@ -56,11 +58,15 @@ public class UserController {
         }
 
         User findUser = userService.findByApplyNumber(userDto.getApplyNumber(),initPath);
+        User answer = User.toEntity(userDto);
         if(findUser.getId()==null){
-            userService.save(User.toEntity(userDto));
+            answer = userService.save(answer);
         }else{
-            userService.updateUserInfo(findUser.getId(),User.toEntity(userDto));
+            answer = userService.updateUserInfo(findUser.getId(), answer);
         }
+
+        firstPageService.updateUser(answer);
+
         return "redirect:/wrt01";
     }
 
@@ -92,15 +98,13 @@ public class UserController {
         User findUser = userService.findByApplyNumber(userDto.getApplyNumber(),initPath);
         User answer = User.toEntity(userDto);
         if(findUser.getId()==null){
-            userService.save(answer);
+            answer = userService.save(answer);
         }else{
-            userService.updateUserInfo(findUser.getId(), answer);
+            answer = userService.updateUserInfo(findUser.getId(), answer);
         }
 
-        // todo: user가 메인이 되는 것이 아니라, first page 의 수험번호가 메인이 되도록 고치자..
-        // firstpage to user session
-        HttpSession session = request.getSession();
-        session.setAttribute("userSession", answer.getId());
+        firstPageService.updateUser(answer);
+
         return "redirect:/wrt02";
     }
 

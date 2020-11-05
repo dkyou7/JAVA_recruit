@@ -2,6 +2,7 @@ package com.ktnet.recruit.web.first_page;
 
 import com.ktnet.recruit.web.policy.Policy;
 import com.ktnet.recruit.web.policy.PolicyDto;
+import com.ktnet.recruit.web.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,8 +41,13 @@ public class FirstPageService {
         return firstPageRepository.findByApplyNumber(applyNumber);
     }
     @Transactional
-    public void updatePolicy(Long firstPageId, PolicyDto dto) {
-        FirstPage find = firstPageRepository.findById(firstPageId).orElseThrow(EntityNotFoundException::new);
+    public void updatePolicy(String applyNumber, PolicyDto dto) {
+        FirstPage find = firstPageRepository.findByApplyNumber(applyNumber);
         find.updatePolicy(dto);
+    }
+    @Transactional
+    public void updateUser(User answer) {
+        FirstPage firstPage = findByApplyNumber(answer.getApplyNumber());
+        firstPage.updateUser(answer);
     }
 }

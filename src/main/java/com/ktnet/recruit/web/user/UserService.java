@@ -18,8 +18,9 @@ public class UserService {
     private final QuestionRepository questionRepository;
 
     @Transactional
-    public void save(User user) {
-        userRepository.save(user);
+    public User save(User user) {
+        User save = userRepository.save(user);
+        return save;
     }
 
     @Transactional
@@ -27,6 +28,12 @@ public class UserService {
         // 유저 정보가 없으면, 접수 번호를 기본생성자로 지정하여 만들어준다.
         return userRepository.findByApplyNumber(applyNumber).orElse(new User(applyNumber,filePath));
     }
+
+    @Transactional
+    public User findByApplyNumber(String applyNumber) {// 유저 정보가 없으면, 접수 번호를 기본생성자로 지정하여 만들어준다.
+        return userRepository.findByApplyNumber(applyNumber).orElse(new User(applyNumber,"/static/images/profile.png"));
+    }
+
     @Transactional
     public User updateUserInfo(Long userId, User tmpUser) {
         User new_user = userRepository.findById(userId).orElseThrow(EntityNotFoundException::new);
@@ -45,4 +52,6 @@ public class UserService {
     public User findById(Long userId) {
         return  userRepository.findById(userId).orElseThrow(EntityNotFoundException::new);
     }
+
+
 }

@@ -16,7 +16,7 @@ public class UserDto {
     private String email;
     private String phoneNumber;
     private String homeNumber;
-    private Boolean isMarried;
+    private String isMarried;
     private String speciality;
     private String hobby;
     private String religion;

@@ -130,10 +130,10 @@
 								<td scope="col"><input type="text" th:field="${user.religion}" class="input_t1 w160"/></td>
 								<th scope="col">혼인여부</th>
 								<td scope="col">
-									<select name="isMarried" class="select_type01 w170">
-										<option value="false">선택</option>
-										<option value="true">기혼</option>
-										<option value="false">미혼</option>
+									<select th:field="${user.isMarried}" th:value="${user.isMarried}" class="select_type01 w170">
+										<option th:value="'S'" selected>선택</option>
+										<option th:value="'Y'" th:text="기혼"></option>
+										<option th:value="'N'" th:text="미혼"></option>
 									</select>
 								</td>
 							</tr>

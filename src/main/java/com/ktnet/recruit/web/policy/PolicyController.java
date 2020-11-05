@@ -18,9 +18,9 @@ public class PolicyController {
     private final FirstPageService firstPageService;
 
     @PostMapping("/permit")
-    public String permit_policy_page(PolicyDto dto,@RequestParam("userId") Long firstPageId){    // userId => firstPageId
+    public String permit_policy_page(PolicyDto dto,@RequestParam("userId") String applyNumbeer){    // userId => firstPageId
         if(dto.isAgree()){
-            firstPageService.updatePolicy(firstPageId,dto);
+            firstPageService.updatePolicy(applyNumbeer,dto);
             return "redirect:/wrt01";
         }
         return "redirect:/policy";

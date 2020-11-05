@@ -35,7 +35,7 @@ public class FirstPageController {
             firstPageService.save(firstPage);
             // 세션 만들어주자.
             HttpSession session = request.getSession();
-            session.setAttribute("userSession", firstPage.getId());
+            session.setAttribute("userSession", firstPage.getApplyNumber());
             return "redirect:/policy";
         }
     }
