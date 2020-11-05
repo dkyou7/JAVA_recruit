@@ -105,7 +105,7 @@
 							</tr>
 							<tr>
 								<th scope="col">휴대폰</th>
-								<td scope="col"><input type="text" th:field="${user.phoneNumber}"  class="input_t1 w160"/></td>
+								<td scope="col"><input type="text" th:field="${user.phoneNumber}" class="input_t1 w160"/></td>
 								<th scope="col">이메일(필수)</th>
 								<td scope="col" style="font-size:11px;color:#828282;"><input type="text" th:field="${user.email}" class="input_t1 w175 mr_b5"/><br /><em style="font-size:12px;">※</em><b> 메일로 합격통보</b>합니다.</td>
 							</tr>
@@ -120,10 +120,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td scope="col" colspan="3"><input type="text" th:field="${user.address}"  id="sample6_address" placeholder="주소" class="input_t1 w_p97"/></td>
+								<td scope="col" colspan="3"><input type="text" th:field="${user.address}" id="sample6_address" placeholder="주소" class="input_t1 w_p97"/></td>
 							</tr>
 							<tr>
-								<td scope="col" colspan="3"><input type="text" th:field="${user.detailAddress}"  id="sample6_detailAddress" placeholder="상세주소" class="input_t1 w_p97"/></td>
+								<td scope="col" colspan="3"><input type="text" th:field="${user.detailAddress}" id="sample6_detailAddress" placeholder="상세주소" class="input_t1 w_p97"/></td>
 							</tr>
 							<tr>
 								<th scope="col">특기</th>
@@ -190,7 +190,11 @@
 								<th scope="col">군번</th>
 								<td scope="col"><input type="text" class="input_t1 w160"/></td>
 								<th scope="col">복무기간</th>
-								<td scope="col"><input type="text" class="input_t1 w70"/> - <input type="text" class="input_t1 w70"/></td>
+								<td scope="col">
+									// todo: 년도 점찍기 구현해보자
+									<input type="text" maxlength="8" class="input_t1 w70"/>
+									-
+									<input type="text" maxlength="8" class="input_t1 w70"/></td>
 							</tr>
 							<tr>
 								<th scope="col">전역구분</th>

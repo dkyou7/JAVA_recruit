@@ -18,7 +18,7 @@ public class FirstPageController {
     private final FirstPageService firstPageService;
 
     @PostMapping("/permit")
-    public String permit_first_page(HttpServletRequest request, FirstPageDto firstPageDto,@RequestParam String test){
+    public String permit_first_page(HttpServletRequest request, FirstPageDto firstPageDto){
         if(firstPageService.isExist(firstPageDto)){  // 지원정보가 존재한다면
             FirstPage findUser = firstPageService.findByApplyNumber(firstPageDto.getApplyNumber());
             // 세션 만들어주자.
@@ -29,9 +29,8 @@ public class FirstPageController {
             return "redirect:/wrt01";
         }else{  // 존재하지 않는다.
             // 일단 새로운 회원정보를 만들어주자.
-            firstPageDto.setApplyInfoGubun(test);
+            firstPageDto.setApplyInfoGubun(firstPageDto.getApplyInfoGubun());
             FirstPage firstPage = FirstPage.toEntity(firstPageDto);
-            // todo: 추후 user table과 one to one 으로 엮여야 하지 않을까?
             firstPageService.save(firstPage);
             // 세션 만들어주자.
             HttpSession session = request.getSession();

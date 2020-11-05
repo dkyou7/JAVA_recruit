@@ -18,16 +18,16 @@ public class QuestionController {
     private final UserService userService;
 
     @PostMapping("/tmpSave")
-    public String tmpSave(@RequestParam("userId") Long userId,QuestionDto dto){    // userId => firstPageId
+    public String tmpSave(@RequestParam("applyNumber") String applyNumber,QuestionDto dto){    // userId => firstPageId
         Long savedId = questionService.save(dto);
-        userService.updateQuestion(userId,savedId);
+        userService.updateQuestion(applyNumber,savedId);
         return "redirect:/wrt03";
     }
 
     @PostMapping("/save")
-    public String save(@RequestParam("userId") Long userId,QuestionDto dto){    // userId => firstPageId
+    public String save(@RequestParam("applyNumber") String applyNumber,QuestionDto dto){    // userId => firstPageId
         Long savedId = questionService.save(dto);
-        userService.updateQuestion(userId,savedId);
+        userService.updateQuestion(applyNumber,savedId);
         return "redirect:/";
     }
 

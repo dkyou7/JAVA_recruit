@@ -108,7 +108,7 @@ public class HomeController {
             return "redirect:/";
         }
         // 유저 정보 내려주기
-        model.addAttribute("userId",applyNumber);
+        model.addAttribute("applyNumber",applyNumber);
 
         // 자소서 정보 내려주기
         User findUser = userService.findByApplyNumber(applyNumber);

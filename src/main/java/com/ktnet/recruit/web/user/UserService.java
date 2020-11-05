@@ -42,16 +42,10 @@ public class UserService {
     }
 
     @Transactional
-    public void updateQuestion(Long userId, Long questionId) {
-        User user = userRepository.findById(userId).orElseThrow(EntityNotFoundException::new);
+    public void updateQuestion(String applyNumber, Long questionId) {
+        User user = userRepository.findByApplyNumber(applyNumber).orElseThrow(EntityNotFoundException::new);
         Question question = questionRepository.findById(questionId).orElseThrow(EntityNotFoundException::new);
         user.updateQuestion(question);
     }
-
-    @Transactional
-    public User findById(Long userId) {
-        return  userRepository.findById(userId).orElseThrow(EntityNotFoundException::new);
-    }
-
 
 }
