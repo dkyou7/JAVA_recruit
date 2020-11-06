@@ -48,9 +48,13 @@
 							<th scope="col">부전공</th>
 						</tr>
 						<tr>
-							<td scope="col"><input type="month" class="input_t1 w100"/></td>
-							<td scope="col"><input type="month" class="input_t1 w100"/></td>
-							<td scope="col"><input type="text" class="input_t1 w70"/>
+							<td scope="col">
+								<input type="text" id="highschoolS" maxLength="7" onkeypress="HighSchoolStartCal()" class="input_t1 w70"/>
+							</td>
+							<td scope="col">
+								<input type="text" id="highschoolE" maxlength="7" onkeypress="HighSchoolEndCal()" class="input_t1 w70"/>
+							</td>
+							<td scope="col"><input type="text" class="input_t1 w90"/>
 								<select name="" class="select_type01 w80">
 									<option value="">고등학교</option>
 									<option value="">대학교</option>
@@ -80,7 +84,10 @@
 									<option value="">4.5</option>
 								</select>
 							</td>
-							<td scope="col"><input type="text" class="input_t1 w70"/></td>
+							<td scope="col">
+								<input type="button" onclick="changeTypeText();" value="저장" class="mr_b5" style="width:40px;padding:0 0 2px 0;"/>
+								<input type="button" onclick="alert('hi');" value="수정" style="width:40px;padding:0 0 2px 0;"/>
+							</td>
 						</tr>
 					</table>
 					<p>※ <b>고등학교부터 순서대로 기입</b> 바랍니다.</p>
@@ -210,40 +217,16 @@
 							<col width="*" />
 						</colgroup>
 						<tr>
-							<th scope="col">관계</th>
-							<td><input type="file" class="file_btn" style="width:340px;" /></td>
-							<th scope="col">관계</th>
-							<td><input type="file" class="file_btn" style="width:340px;" /></td>
+							<th scope="col" colspan="4">파일 첨부</th>
+							<td><input type="file" class="file_btn" style="width:90%;" /></td>
 						</tr>
 					</table>
 					<p>※ 입사지원서 기재 내용중<b>허위로 작성된 내용에 대한 모든 책임은 지원자</b>에 있습니다.<br />※ 첨부파일은<b>확장자가 jpg,hwp,doc,ppt,xls만 가능</b>합니다.(양식은 자유양식, 각 5M크기 한도) </p>
 				</div>
 
-				<div class="view2 w885 mr_t35">
-					<table summary="비밀번호" class="w885">
-					<caption>비밀번호</caption>
-						<colgroup>
-							<col width="108px" />
-							<col width="165px" />
-							<col width="108px" />
-							<col width="165px" />
-							<col width="115px" />
-							<col width="*" />
-						</colgroup>
-						<tr>
-							<th scope="col">비밀번호</th>
-							<td scope="col"><input type="password" class="input_t1 w_p90"/></td>
-							<th scope="col">비밀번호 확인</th>
-							<td scope="col"><input type="password" class="input_t1 w_p90"/></td>
-							<th scope="col">마지막 수정일자</th>
-							<td scope="col"><input type="password" class="input_t1 w_p94"/></td>
-						</tr>
-					</table>
-
-					<div class="btn_center2">
-						<span class="gray_button3"><button type="gray_button3" onclick="go_link('wrt01')">이전</button></span>
-						<span class="blue_button"><button type="blue_button" onclick="go_link('wrt03')">저장</button></span>
-					</div>
+				<div class="btn_center2">
+					<span class="gray_button3"><button type="gray_button3" onclick="go_link('wrt01')">이전</button></span>
+					<span class="blue_button"><button type="blue_button" onclick="go_link('wrt03')">저장</button></span>
 				</div>
 				<!-- //본문시작 -->
 				</div>
