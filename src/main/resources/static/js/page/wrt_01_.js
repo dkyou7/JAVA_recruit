@@ -15,6 +15,18 @@ $('#img').on('change', function() {
     }
 });
 
+// 날자 점 찍어주기
+function startArmyCal() {
+ 	if(document.getElementById("startArmy").value.length==4 || document.getElementById("startArmy").value.length==7){
+  		document.getElementById("startArmy").value += '.';
+  	}
+}
+function endArmyCal() {
+ 	if(document.getElementById("endArmy").value.length==4 || document.getElementById("endArmy").value.length==7){
+  		document.getElementById("endArmy").value += '.';
+  	}
+}
+
 function sample6_execDaumPostcode() {
     daum.postcode.load(function(){
         new daum.Postcode({
