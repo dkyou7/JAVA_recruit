@@ -1,12 +1,23 @@
 package com.ktnet.recruit.admin;
 
+import com.ktnet.recruit.web.user.User;
+import com.ktnet.recruit.web.user.UserDto;
+import com.ktnet.recruit.web.user.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/admin")
 public class AdminController {
+
+    private final UserService userService;
 
     @GetMapping("/index")
     public String adminIndex(){
@@ -49,7 +60,13 @@ public class AdminController {
     }
 
     @GetMapping("/applyUser")
-    public String adminApplyUser(){
+    public String adminApplyUser(Model model){
+        List<User> findUsers = userService.findAll();
+        List<UserDto> findUsersDto = new ArrayList<>();
+        for (User user : findUsers){
+            findUsersDto.add(UserDto.toApplyUserDto(user));
+        }
+        model.addAttribute("dto",findUsersDto);
         return "admin/applyUser";
     }
 }

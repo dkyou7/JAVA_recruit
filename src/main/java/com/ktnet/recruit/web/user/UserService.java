@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -48,4 +49,8 @@ public class UserService {
         user.updateQuestion(question);
     }
 
+    @Transactional
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
 }

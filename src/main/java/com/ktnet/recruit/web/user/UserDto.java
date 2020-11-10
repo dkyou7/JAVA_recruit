@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 @AllArgsConstructor
 public class UserDto {
 
+    private Long id;
     private String name;
     private String eName;
     private String email;
@@ -50,5 +51,12 @@ public class UserDto {
                 .file(entity.getFile())
                 .build();
         return answer;
+    }
+    public static UserDto toApplyUserDto(User entity){
+        return UserDto.builder()
+                .name(entity.getName())
+                .eName(entity.getE_name())
+                .phoneNumber(entity.getPhoneNumber())
+                .id(entity.getId()).build();
     }
 }
